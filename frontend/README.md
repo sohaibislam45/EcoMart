@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EcoMart – Sustainable Product Store
 
-## Getting Started
+EcoMart is a modern, eco-friendly e-commerce application built with Next.js 15/16 and Express.js. It features a premium design, role-based authentication, and a full product management system.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Role-Based Authentication**: Secure login/signup system with NextAuth.js (User & Admin roles).
+- **Dark/Light Mode**: Fully themeable UI with automatic system detection.
+- **Product Management**:
+  - Full CRUD operations for Admins.
+  - Advanced filtering (Category, Price, Eco-Rating).
+  - Search and Sorting functionalities.
+- **Responsive Design**: Optimized for Mobile, Tablet, and Desktop.
+- **Dashboard**:
+  - User Dashboard: Order history, profile management.
+  - Admin Dashboard: Product inventory, order tracking, analytics.
+- **Sustainable UX**: Eco-friendly tips and impact indicators throughout the app.
+
+## 🛠 Technology Stack
+
+### Frontend
+
+- **Framework**: Next.js 15/16 (App Router)
+- **Styling**: Tailwind CSS + Framer Motion (Animations)
+- **State Management**: React Hooks + URL Params
+- **Authentication**: NextAuth.js v5
+- **Icons**: Lucide React
+- **Notifications**: SweetAlert2 & React Hot Toast
+
+### Backend
+
+- **Server**: Express.js
+- **Database**: MongoDB (Mongoose ODM)
+- **API**: RESTful API endpoints
+
+## 📂 Project Structure
+
+```
+c:\Projects\EcoMart\
+├── frontend\           # Next.js Frontend Application
+│   ├── app\            # App Router Pages & Layouts
+│   ├── components\     # Reusable UI Components
+│   ├── lib\            # Utilities (Firebase, API)
+│   └── public\         # Static Assets
+├── backend\            # Express.js API Server
+│   ├── models\         # Mongoose Schemas
+│   ├── routes\         # API Routes
+│   └── controllers\    # Request Handlers
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚡ Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js (v18+)
+- MongoDB connection string
 
-## Learn More
+### Installation
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository** (if applicable)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Setup Backend**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   cd backend
+   npm install
+   # Create .env file with PORT and MONGODB_URI
+   npm run dev
+   ```
 
-## Deploy on Vercel
+3. **Setup Frontend**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   cd frontend
+   npm install
+   # Create .env.local file with configuration
+   npm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. **Access the App**
+   - Frontend: [http://localhost:3000](http://localhost:3000)
+   - Backend API: [http://localhost:5000](http://localhost:5000)
+
+## 🔑 Demo Credentials
+
+**User Account:**
+
+- Email: `user@ecomart.com`
+- Password: `password123`
+
+**Admin Account:**
+
+- Email: `admin@ecomart.com`
+- Password: `admin123`
+
+## 📖 Route Summary
+
+- `/` - Landing Page (Public)
+- `/products` - Product Listing (Public)
+- `/products/[id]` - Product Details (Public)
+- `/login` & `/register` - Authentication
+- `/dashboard` - Protected User Dashboard
+- `/dashboard/admin/*` - Protected Admin Routes
+
+## 🤝 Contribution
+
+Feel free to fork this project and submit pull requests.

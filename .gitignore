@@ -1,0 +1,5 @@
+ecomart-87c47-firebase-adminsdk.json
+node_modules/
+.env
+.next/
+dist/

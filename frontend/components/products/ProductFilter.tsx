@@ -2,17 +2,16 @@
 
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { SlidersHorizontal, X } from 'lucide-react';
+import { SlidersHorizontal, X, Search, ChevronRight } from 'lucide-react';
 
 const categories = [
-    'All',
-    'Reusable Household',
-    'Zero-Waste Personal Care',
-    'Sustainable Kitchen',
-    'Eco Lifestyle',
-    'Solar & Energy-Saving',
+    'Home & Living',
+    'Kitchen',
+    'Personal Care',
+    'Electronics',
+    'Fashion',
     'Sustainable Fashion',
-    'Other'
+    'Sustainable Kitchen'
 ];
 
 export default function ProductFilter() {
@@ -22,9 +21,9 @@ export default function ProductFilter() {
 
     // Initialize state from URL params
     const [filters, setFilters] = useState({
-        category: searchParams.get('category') || 'All',
-        minPrice: searchParams.get('minPrice') || '',
-        maxPrice: searchParams.get('maxPrice') || '',
+        categories: searchParams.get('category')?.split(',') || [],
+        minPrice: searchParams.get('minPrice') || '0',
+        maxPrice: searchParams.get('maxPrice') || '500',
         rating: searchParams.get('rating') || '',
         sort: searchParams.get('sort') || 'newest',
         search: searchParams.get('search') || ''
@@ -38,31 +37,30 @@ export default function ProductFilter() {
         return () => clearTimeout(handler);
     }, [filters.search]);
 
-    const updateFilter = (key: string, value: string) => {
+    const updateFilter = (key: string, value: any) => {
         setFilters(prev => ({ ...prev, [key]: value }));
+    };
+
+    const toggleCategory = (cat: string) => {
+        setFilters(prev => {
+            const newCats = prev.categories.includes(cat)
+                ? prev.categories.filter(c => c !== cat)
+                : [...prev.categories, cat];
+            return { ...prev, categories: newCats };
+        });
     };
 
     const applyFilters = () => {
         const params = new URLSearchParams();
-        if (filters.category && filters.category !== 'All') params.set('category', filters.category);
-        if (filters.minPrice) params.set('minPrice', filters.minPrice);
-        if (filters.maxPrice) params.set('maxPrice', filters.maxPrice);
+        if (filters.categories.length > 0) params.set('category', filters.categories.join(','));
+        if (filters.minPrice && filters.minPrice !== '0') params.set('minPrice', filters.minPrice);
+        if (filters.maxPrice && filters.maxPrice !== '500') params.set('maxPrice', filters.maxPrice);
         if (filters.rating) params.set('rating', filters.rating);
         if (filters.sort) params.set('sort', filters.sort);
         if (filters.search) params.set('search', filters.search);
 
         router.push(`/products?${params.toString()}`);
     };
-
-    // Apply filters when they change (except search which is debounced)
-    useEffect(() => {
-        // Only apply if search didn't change (handled by debounce)
-        if (filters.search === (searchParams.get('search') || '')) {
-            // We need a way to trigger apply only on explicit user action for select/inputs if we want instant update
-            // For now, let's use a "Apply" button for price or just onBlur/Enter?
-            // Actually instant update for category/sort/rating is good.
-        }
-    }, [filters]);
 
     const handleApply = () => {
         applyFilters();
@@ -74,7 +72,7 @@ export default function ProductFilter() {
             <div className="lg:hidden mb-4">
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="flex items-center space-x-2 bg-white dark:bg-neutral-800 px-4 py-2 rounded-lg shadow-sm border border-neutral-200 dark:border-neutral-700 w-full"
+                    className="flex items-center space-x-2 bg-forest-dark px-4 py-3 rounded-xl border border-forest-muted w-full text-white"
                 >
                     <SlidersHorizontal size={20} />
                     <span>Filters & Sort</span>
@@ -82,118 +80,95 @@ export default function ProductFilter() {
             </div>
 
             <div className={`
-        lg:block space-y-8
-        ${isOpen ? 'fixed inset-0 z-50 bg-white dark:bg-neutral-900 p-6 overflow-y-auto' : 'hidden'}
-      `}>
+                lg:block space-y-8
+                ${isOpen ? 'fixed inset-0 z-50 bg-background-dark p-6 overflow-y-auto' : 'hidden'}
+            `}>
                 {isOpen && (
                     <div className="flex justify-between items-center mb-6 lg:hidden">
-                        <h2 className="text-xl font-bold">Filters</h2>
-                        <button onClick={() => setIsOpen(false)}><X size={24} /></button>
+                        <h2 className="text-xl font-bold text-white">Filters</h2>
+                        <button onClick={() => setIsOpen(false)} className="text-white"><X size={24} /></button>
                     </div>
                 )}
 
                 {/* Search */}
-                <div>
-                    <h3 className="font-bold mb-3">Search</h3>
-                    <input
-                        type="text"
-                        placeholder="Search products..."
-                        value={filters.search}
-                        onChange={(e) => updateFilter('search', e.target.value)}
-                        className="w-full px-3 py-2 border rounded-lg dark:bg-neutral-800 dark:border-neutral-700"
-                    />
+                <div className="space-y-3">
+                    <h3 className="text-sm font-bold uppercase tracking-wider text-white/40">Search</h3>
+                    <div className="relative group">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40 group-focus-within:text-primary transition-colors" size={18} />
+                        <input
+                            type="text"
+                            placeholder="Search eco-products..."
+                            value={filters.search}
+                            onChange={(e) => updateFilter('search', e.target.value)}
+                            className="w-full bg-forest-dark border-forest-muted focus:border-primary focus:ring-1 focus:ring-primary rounded-xl pl-10 pr-4 py-3 text-sm placeholder:text-white/30 text-white transition-all"
+                        />
+                    </div>
                 </div>
 
                 {/* Categories */}
-                <div>
-                    <h3 className="font-bold mb-3">Category</h3>
+                <div className="space-y-4">
+                    <h3 className="text-sm font-bold uppercase tracking-wider text-white/40">Categories</h3>
                     <div className="space-y-2">
                         {categories.map((cat) => (
-                            <label key={cat} className="flex items-center space-x-2 cursor-pointer">
+                            <label key={cat} className="flex items-center gap-3 cursor-pointer group">
                                 <input
-                                    type="radio"
-                                    name="category"
-                                    checked={filters.category === cat}
-                                    onChange={() => {
-                                        updateFilter('category', cat);
-                                        // Instant update
-                                        const params = new URLSearchParams(searchParams.toString());
-                                        if (cat !== 'All') params.set('category', cat);
-                                        else params.delete('category');
-                                        router.push(`/products?${params.toString()}`);
-                                    }}
-                                    className="text-primary-600 focus:ring-primary-500"
+                                    type="checkbox"
+                                    checked={filters.categories.includes(cat)}
+                                    onChange={() => toggleCategory(cat)}
+                                    className="h-5 w-5 rounded border-forest-muted border-2 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0"
                                 />
-                                <span>{cat}</span>
+                                <span className="text-white/80 group-hover:text-white transition-colors">{cat}</span>
                             </label>
                         ))}
                     </div>
                 </div>
 
                 {/* Price Range */}
-                <div>
-                    <h3 className="font-bold mb-3">Price Range</h3>
-                    <div className="flex space-x-2">
+                <div className="space-y-4">
+                    <div className="flex justify-between items-center">
+                        <h3 className="text-sm font-bold uppercase tracking-wider text-white/40">Price Range</h3>
+                        <span className="text-xs text-primary font-bold">${filters.minPrice} - ${filters.maxPrice}</span>
+                    </div>
+                    <div className="relative h-2 bg-forest-muted rounded-full mt-6">
                         <input
-                            type="number"
-                            placeholder="Min"
-                            value={filters.minPrice}
-                            onChange={(e) => updateFilter('minPrice', e.target.value)}
-                            className="w-full px-3 py-2 border rounded-lg dark:bg-neutral-800 dark:border-neutral-700"
-                        />
-                        <input
-                            type="number"
-                            placeholder="Max"
+                            type="range"
+                            min="0"
+                            max="500"
                             value={filters.maxPrice}
                             onChange={(e) => updateFilter('maxPrice', e.target.value)}
-                            className="w-full px-3 py-2 border rounded-lg dark:bg-neutral-800 dark:border-neutral-700"
+                            className="absolute w-full appearance-none bg-transparent pointer-events-auto -top-2"
                         />
                     </div>
-                    <button
-                        onClick={handleApply}
-                        className="mt-2 w-full bg-primary-600 text-white py-1 rounded-md text-sm hover:bg-primary-700"
-                    >
-                        Apply Price
-                    </button>
                 </div>
 
-                {/* Rating */}
-                <div>
-                    <h3 className="font-bold mb-3">Eco Rating</h3>
-                    <input
-                        type="range"
-                        min="1"
-                        max="5"
-                        step="0.5"
-                        value={filters.rating || 1}
-                        onChange={(e) => updateFilter('rating', e.target.value)}
-                        className="w-full"
-                    />
-                    <div className="flex justify-between text-sm text-neutral-500">
-                        <span>1</span>
-                        <span>{filters.rating || 'Any'}+ Stars</span>
-                        <span>5</span>
+                {/* Ratings */}
+                <div className="space-y-4">
+                    <h3 className="text-sm font-bold uppercase tracking-wider text-white/40">Rating</h3>
+                    <div className="space-y-2">
+                        {[5, 4, 3].map((r) => (
+                            <button
+                                key={r}
+                                onClick={() => updateFilter('rating', r.toString())}
+                                className={`flex items-center gap-2 text-sm transition-all ${filters.rating === r.toString() ? 'text-primary' : 'text-white/70 hover:text-primary'}`}
+                            >
+                                <div className="flex text-primary">
+                                    {[...Array(5)].map((_, i) => (
+                                        <span key={i} className={`material-symbols-outlined text-base ${i < r ? 'filled-star' : ''}`}>star</span>
+                                    ))}
+                                </div>
+                                <span>{r === 5 ? '5.0' : `${r}.0 & up`}</span>
+                            </button>
+                        ))}
                     </div>
-                    <button
-                        onClick={handleApply}
-                        className="mt-2 w-full bg-neutral-200 dark:bg-neutral-800 py-1 rounded-md text-sm hover:bg-neutral-300 dark:hover:bg-neutral-700"
-                    >
-                        Apply Rating
-                    </button>
                 </div>
 
                 {/* Sort */}
-                <div>
-                    <h3 className="font-bold mb-3">Sort By</h3>
+                <div className="space-y-3">
+                    <h3 className="text-sm font-bold uppercase tracking-wider text-white/40">Sort By</h3>
                     <select
                         value={filters.sort}
-                        onChange={(e) => {
-                            updateFilter('sort', e.target.value);
-                            const params = new URLSearchParams(searchParams.toString());
-                            params.set('sort', e.target.value);
-                            router.push(`/products?${params.toString()}`);
-                        }}
-                        className="w-full px-3 py-2 border rounded-lg dark:bg-neutral-800 dark:border-neutral-700"
+                        onChange={(e) => updateFilter('sort', e.target.value)}
+                        className="w-full bg-forest-dark border-forest-muted focus:border-primary focus:ring-1 focus:ring-primary rounded-xl px-4 py-3 text-sm text-white transition-all"
                     >
                         <option value="newest">Newest Arrivals</option>
                         <option value="price_asc">Price: Low to High</option>
@@ -202,17 +177,26 @@ export default function ProductFilter() {
                     </select>
                 </div>
 
-                <button
-                    onClick={() => {
-                        setFilters({
-                            category: 'All', minPrice: '', maxPrice: '', rating: '', sort: 'newest', search: ''
-                        });
-                        router.push('/products');
-                    }}
-                    className="w-full py-2 border border-red-200 text-red-500 rounded-lg hover:bg-red-50 dark:border-red-900 dark:hover:bg-red-900/20"
-                >
-                    Reset Filters
-                </button>
+                <div className="space-y-3 pt-4">
+                    <button
+                        onClick={handleApply}
+                        className="w-full bg-primary hover:bg-primary/90 text-background-dark py-3 rounded-xl font-bold transition-all shadow-lg shadow-primary/10"
+                    >
+                        Apply Filters
+                    </button>
+                    <button
+                        onClick={() => {
+                            setFilters({
+                                categories: [], minPrice: '0', maxPrice: '500', rating: '', sort: 'newest', search: ''
+                            });
+                            router.push('/products');
+                            if (isOpen) setIsOpen(false);
+                        }}
+                        className="w-full py-3 border border-forest-muted text-white/50 rounded-xl hover:bg-forest-muted transition-all text-sm font-bold"
+                    >
+                        Reset Filters
+                    </button>
+                </div>
             </div>
         </>
     );

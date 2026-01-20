@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>EcoMart | Sustainable Living Starts Here</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#34d399", // More vibrant emerald for dark mode
+                        "primary-dark": "#267359",
+                        "background-dark": "#0f1412", // Forest green-black
+                        "surface-dark": "#1a211e",
+                        "accent-tan": "#E8DDD0",
+                        "off-white": "#f2f7f5",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { 
+            font-family: 'Manrope', sans-serif;
+            background-color: #0f1412;
+            color: #f2f7f5;
+        }
+    </style>
+</head>
+
+<body class="bg-background-dark text-off-white transition-colors duration-300">
+    <nav class="sticky top-0 z-50 w-full bg-background-dark/90 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-[1280px] mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-10">
+                <div class="flex items-center gap-3">
+                    <div class="size-8 bg-primary rounded-lg flex items-center justify-center text-background-dark">
+                        <span class="material-symbols-outlined">eco</span>
+                    </div>
+                    <h2 class="text-xl font-extrabold tracking-tight text-white">EcoMart</h2>
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <a class="text-sm font-semibold text-gray-300 hover:text-primary transition-colors"
+                        href="#">Shop</a>
+                    <a class="text-sm font-semibold text-gray-300 hover:text-primary transition-colors" href="#">Our
+                        Mission</a>
+                    <a class="text-sm font-semibold text-gray-300 hover:text-primary transition-colors"
+                        href="#">Impact</a>
+                </div>
+            </div>
+            <div class="flex-1 max-w-md px-10">
+                <div class="relative group">
+                    <span
+                        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary">search</span>
+                    <input
+                        class="w-full h-11 pl-11 pr-4 bg-white/5 border border-white/10 rounded-xl focus:ring-2 focus:ring-primary/40 focus:border-primary text-sm placeholder:text-gray-500"
+                        placeholder="Search sustainable products..." type="text" />
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <button
+                    class="p-2 hover:bg-white/5 rounded-full transition-colors relative text-gray-300 hover:text-white">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <span
+                        class="absolute top-1 right-1 size-4 bg-primary text-background-dark text-[10px] font-bold flex items-center justify-center rounded-full">3</span>
+                </button>
+                <button class="p-2 hover:bg-white/5 rounded-full transition-colors text-gray-300 hover:text-white">
+                    <span class="material-symbols-outlined">person</span>
+                </button>
+                <button
+                    class="bg-primary text-background-dark px-6 py-2.5 rounded-xl font-bold text-sm hover:brightness-110 transition-all">
+                    Sign In
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main class="max-w-[1280px] mx-auto px-6 lg:px-10 py-6">
+        <section class="mb-16">
+            <div class="relative min-h-[580px] rounded-3xl overflow-hidden flex items-center p-8 lg:p-16">
+                <div class="absolute inset-0 bg-cover bg-center"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC2r_KsBIGFfzFx_yzSbu1MbUdAkEJwoCUD6KZGFJHsUZ7CysjB4FJIviRf7sSRoVoDBLAZbhpjKg2DTriL7CZlirmrH34qJt9WW2QyytULM_rlZVQLvKnm4GBSqMltx26w9XesFkeS09HN-5g1t0V9R51wfjuaCH8t6EuNzN__yoUvym9JU5mKpl4y2LpKLEQCiX4gg75WxZvsLGNNSS4PM5YSwjoUMZDKuhw29MGvqLJppggko5mrK5imOdo-XGNwz9paIdZkuFEI');">
+                </div>
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-background-dark/90 via-background-dark/40 to-transparent">
+                </div>
+                <div class="relative z-10 max-w-2xl">
+                    <span
+                        class="inline-block px-4 py-1.5 bg-primary/90 text-background-dark text-xs font-bold tracking-widest uppercase rounded-full mb-6">Eco-conscious
+                        Essentials</span>
+                    <h1 class="text-white text-5xl lg:text-7xl font-extrabold leading-[1.1] mb-6">
+                        Sustainable Living <br />Starts Here
+                    </h1>
+                    <p class="text-gray-200 text-lg lg:text-xl font-medium mb-10 max-w-lg leading-relaxed">
+                        Curated collection of everyday products designed for a better, greener tomorrow without
+                        compromising on quality.
+                    </p>
+                    <div class="flex gap-4">
+                        <button
+                            class="bg-primary text-background-dark px-8 py-4 rounded-xl font-bold text-lg hover:scale-[1.02] transition-transform shadow-xl shadow-primary/20">
+                            Explore Collection
+                        </button>
+                        <button
+                            class="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-all">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+            <div
+                class="flex gap-5 p-8 rounded-2xl bg-surface-dark border border-white/5 group hover:border-primary/40 transition-colors">
+                <div
+                    class="size-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined !text-3xl">nature_people</span>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-2 text-white">100% Organic</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">Every item is sourced from certified organic farms
+                        committed to soil health.</p>
+                </div>
+            </div>
+            <div
+                class="flex gap-5 p-8 rounded-2xl bg-surface-dark border border-white/5 group hover:border-primary/40 transition-colors">
+                <div
+                    class="size-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined !text-3xl">co2</span>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-2 text-white">Carbon Neutral</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">We offset every gram of carbon emitted during the
+                        delivery to your doorstep.</p>
+                </div>
+            </div>
+            <div
+                class="flex gap-5 p-8 rounded-2xl bg-surface-dark border border-white/5 group hover:border-primary/40 transition-colors">
+                <div
+                    class="size-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined !text-3xl">handshake</span>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-2 text-white">Fair Trade</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">Ensuring equitable wages and safe conditions for
+                        every worker in our chain.</p>
+                </div>
+            </div>
+        </section>
+        <section class="mb-20">
+            <div class="flex items-end justify-between mb-8">
+                <div>
+                    <h2 class="text-3xl font-extrabold tracking-tight mb-2 text-white">Shop by Category</h2>
+                    <p class="text-gray-400">Everything you need for a conscious lifestyle</p>
+                </div>
+                <a class="text-primary font-bold flex items-center gap-2 group" href="#">
+                    View All <span
+                        class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="group relative aspect-[4/5] rounded-3xl overflow-hidden cursor-pointer">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC6Uxqe6ZWPSULEQgZScn0TPRchUPaC__i-bBE3G9o1niIq_Kd0UKKcdDqM7s9id3jjCN0wLZAjWqkSURuHKdbX6VdyrGQR2aNI0RJUahmWP7glSzqTFTsgq5O-BCnoRISCzyMP2d9rdH731rNe_Wq5uBjqdm7YYpx0YY_Itr8m5xQKVa3I7SOr1swMYY43PyO26aj4pdoPJK0qCk71dLJKfEvJ4knWOhyD0VEDchHuAc3Y1S00GV54bFNjwUYO_v4UBE49WH6Y43Xx');">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-background-dark/80 via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-8 left-8">
+                        <h3 class="text-2xl font-bold text-white mb-1">Eco-Home</h3>
+                        <p class="text-gray-300 text-sm">Sustainable basics for every room</p>
+                    </div>
+                </div>
+                <div class="group relative aspect-[4/5] rounded-3xl overflow-hidden cursor-pointer">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA4EEoN4yndwOGwgtnMt0zUm1TF-Ryt1exKEb6NXa0zqbQvT1wjjH7CzSVo4WszPvOryapGrcGwYUE3H1O7kmR2qd30mlFYe5b3TfgXiPxxMtgGgqyz4vVhzXNXK7Bjok3a1DxWpKVSvFpjlkxTltTGDseY-Osf4w1zfwNc4P5VUxf9YEaZKBfRiQdR5stJUavj7zKxtqrzxRnWcB7PAwbEkOnG_lP-04LHxX-verV-QlFjjIoCBGKAme3EM9LmL2ngh0NT2eLsuZin');">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-background-dark/80 via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-8 left-8">
+                        <h3 class="text-2xl font-bold text-white mb-1">Personal Care</h3>
+                        <p class="text-gray-300 text-sm">Zero-waste beauty &amp; wellness</p>
+                    </div>
+                </div>
+                <div class="group relative aspect-[4/5] rounded-3xl overflow-hidden cursor-pointer">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDcVMHz42LyK_DZ0i1Q1yXLhka2FrQvSWej7bbDdjW8Iy3gRv-f8Y_0EwFFsQYbOunzg5xadeCp9To5Eu1SB9ge7Y_8hpjNhjtIWTMPLJJvdC5gFCL4vy-_4MbGcXyJ1jymhF2j0CFwUbJ3qMmkciYkiavJBOC09VEEu35INCzixih6wDlp-K-XBCiUMGWILhjh9DoyXWBJBle8pOtBqL2u1iwJrVoT4rnK213qwSdFtVOy-zan0TDm9mcEAFpxM2joRKDugLDSuXel');">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-background-dark/80 via-transparent to-transparent">
+                    </div>
+                    <div class="absolute bottom-8 left-8">
+                        <h3 class="text-2xl font-bold text-white mb-1">Ethical Fashion</h3>
+                        <p class="text-gray-300 text-sm">Organic fabrics, timeless style</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mb-20">
+            <div class="flex items-center justify-between mb-10">
+                <h2 class="text-3xl font-extrabold tracking-tight text-white">New Arrivals</h2>
+                <div class="flex gap-2">
+                    <button
+                        class="size-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:border-primary hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined">chevron_left</span>
+                    </button>
+                    <button
+                        class="size-10 rounded-full border border-white/10 flex items-center justify-center text-primary hover:border-primary transition-colors">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="group">
+                    <div class="relative aspect-square rounded-2xl overflow-hidden bg-surface-dark mb-4">
+                        <div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAIcFv1YoNDNzQMJzZZ5aCgKcMrTFW361EQ4Q97YbFCAqZn4X7XaRO0ZIXOwtVqei0wUlYKslxoUPtLEp9po3NZP1vePRmbyCRPBJEe_uisRn7SaNgeEhh2sRStOvA53rAu_bCIxKjve4az3drxoa4DUG2yq0a487G2LfAbXtUwIUPwJNKWqdhsL3RoC4hMLpbBbfE_mjCyARKDMnhDdoVK7gF1FjBUtJaj6ufM-p6MY_hZvCBaMDg6FQVi1u5BOp0hXzudWL9whEeZ');">
+                        </div>
+                        <button
+                            class="absolute top-4 right-4 size-10 bg-background-dark/60 backdrop-blur rounded-full flex items-center justify-center text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="material-symbols-outlined">favorite</span>
+                        </button>
+                        <div
+                            class="absolute bottom-0 inset-x-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform">
+                            <button
+                                class="w-full bg-primary text-background-dark py-3 rounded-xl font-bold text-sm shadow-lg">Quick
+                                Add</button>
+                        </div>
+                    </div>
+                    <div class="space-y-1 px-1">
+                        <p class="text-xs text-primary font-bold uppercase tracking-widest">Accessories</p>
+                        <h4 class="font-bold text-lg text-white">Bamboo Travel Mug</h4>
+                        <div class="flex items-center gap-2">
+                            <div class="flex text-amber-500">
+                                <span class="material-symbols-outlined !text-sm">star</span>
+                                <span class="material-symbols-outlined !text-sm">star</span>
+                                <span class="material-symbols-outlined !text-sm">star</span>
+                                <span class="material-symbols-outlined !text-sm">star</span>
+                                <span class="material-symbols-outlined !text-sm">star_half</span>
+                            </div>
+                            <span class="text-xs text-gray-500">(128)</span>
+                        </div>
+                        <p class="font-extrabold text-primary text-xl">$24.00</p>
+                    </div>
+                </div>
+                <div class="group">
+                    <div class="relative aspect-square rounded-2xl overflow-hidden bg-surface-dark mb-4">
+                        <div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCHigROitalvnabxplir97FqROUHZnM2yV7gvVfSsgdl-XjU8HBmcqczxAW5SmcbXarFl-sqa5WQNFj4oadVctvixZ4nlrXw32jfx8xBSLb7Dn5rREB3sZwJa-4zBhIePQIYgJruUO5MLGvF0I3tL9KJvMUDIB6RY3QgEahtTUhlSfA0mqVSN8IPGFSXToJhXq9eavpd_t7j68rolGV0EEkvRGbf1yq03a8Ba3no4j8Fh5U7U0n6sRCxjKL9T-Hbib1akS6qxTEEkID');">
+                        </div>
+                        <button
+                            class="absolute top-4 right-4 size-10 bg-background-dark/60 backdrop-blur rounded-full flex items-center justify-center text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="material-symbols-outlined">favorite</span>
+                        </button>
+                        <div
+                            class="absolute bottom-0 inset-x-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform">
+                            <button
+                                class="w-full bg-primary text-background-dark py-3 rounded-xl font-bold text-sm shadow-lg">Quick
+                                Add</button>
+                        </div>
+                    </div>
+                    <div class="space-y-1 px-1">
+                        <p class="text-xs text-primary font-bold uppercase tracking-widest">Home Care</p>
+                        <h4 class="font-bold text-lg text-white">Natural Cleanser Kit</h4>
+                        <div class="flex items-center gap-2">
+                            <div class="flex text-amber-500">
+                                <span class="material-symbols-outlined !text-sm">star</span>
+                                <span class="material-symbols-outlined !text-sm">star</span>
+                                <span class="material-symbols-outlined !text-sm">star</span>
+                                <span class="material-symbols-outlined !text-sm">star</span>
+                                <span class="material-symbols-outlined !text-sm">star</span>
+                            </div>
+                            <span class="text-xs text-gray-500">(84)</span>
+                        </div>
+                        <p class="font-extrabold text-primary text-xl">$38.00</p>
+                    </div>
+                </div>
+                <div class="group">
+                    <div class="relative aspect-square rounded-2xl overflow-hidden bg-surface-dark mb-4">
+                        <div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbmEp8JJkzNSQZg2PMNnyD0RJuD9ECQ8R27hcDReghThZln6c22YgLEI9WOltVj4eXnq_Bm4kdCAkw221CnDtAxrfVw7LLOD6QLUuEouqETx1p0_9Ig6nIsNN7BOHrhrOq3uC92pOhUeT1vTIgZ0bSJb0LLhu9puVDuOnEJvoc9niWuDvzPhqzIQLFCFqRdtiPHT_J6o3vP1lxns0xDPXleQORksPZqrRQIpdwCjfQlPDd4fk5DfYRXFXv5EkI5S3ijY6_TGVEIZN3');">
+                        </div>
+                        <button
+                            class="absolute top-4 right-4 size-10 bg-background-dark/60 backdrop-blur rounded-full flex items-center justify-center text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="material-symbols-outlined">favorite</span>
+                        </button>
+                        <div
+                            class="absolute bottom-0 inset-x-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform">
+                            <button
+                                class="w-full bg-primary text-background-dark py-3 rounded-xl font-bold text-sm shadow-lg">Quick
+                                Add</button>
+                        </div>
+                    </div>
+                    <div class="space-y-1 px-1">
+                        <p class="text-xs text-primary font-bold uppercase tracking-widest">Apparel</p>
+                        <h4 class="font-bold text-lg text-white">Organic Cotton Tee</h4>
+                        <div class="flex items-center gap-2">
+                            <div class="flex text-amber-500">
+                                <span class="material-symbols-outlined !text-sm">star</span>
+                                <span class="material-symbols-outlined !text-sm">star</span>
+                                <span class="material-symbols-outlined !text-sm">star</span>
+                                <span class="material-symbols-outlined !text-sm">star</span>
+                                <span class="material-symbols-outlined !text-sm">star</span>
+                            </div>
+                            <span class="text-xs text-gray-500">(245)</span>
+                        </div>
+                        <p class="font-extrabold text-primary text-xl">$32.00</p>
+                    </div>
+                </div>
+                <div class="group">
+                    <div class="relative aspect-square rounded-2xl overflow-hidden bg-surface-dark mb-4">
+                        <div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBHkTKjR6Xo8MeXPgXiQbozCJpiO_NrCOY76VDRlMttZkq3HWcD4kWmdjfkbmVah9jU-ZSW43uVliL7iZQnVL-KbEj_UvdTjrBtcJYGVMuU9-MSEj0-WfC1iSf2PEsRCiT9JeSHYzD81_ksP20xzc_VloppTlCQsRYE3OusFfIOvxgeOC7b3mfpAa5NSUqhZL52RBZMQOQ5ZOofVzBPMfZcv6Wh95zmllb4RWZ_4_OeiizIl-E5U7-rv1GxG8KxOUC4dBxTH5TD6MGc');">
+                        </div>
+                        <button
+                            class="absolute top-4 right-4 size-10 bg-background-dark/60 backdrop-blur rounded-full flex items-center justify-center text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="material-symbols-outlined">favorite</span>
+                        </button>
+                        <div
+                            class="absolute bottom-0 inset-x-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform">
+                            <button
+                                class="w-full bg-primary text-background-dark py-3 rounded-xl font-bold text-sm shadow-lg">Quick
+                                Add</button>
+                        </div>
+                    </div>
+                    <div class="space-y-1 px-1">
+                        <p class="text-xs text-primary font-bold uppercase tracking-widest">Fashion</p>
+                        <h4 class="font-bold text-lg text-white">Recycled Hemp Tote</h4>
+                        <div class="flex items-center gap-2">
+                            <div class="flex text-amber-500">
+                                <span class="material-symbols-outlined !text-sm">star</span>
+                                <span class="material-symbols-outlined !text-sm">star</span>
+                                <span class="material-symbols-outlined !text-sm">star</span>
+                                <span class="material-symbols-outlined !text-sm">star</span>
+                                <span class="material-symbols-outlined !text-sm">star_half</span>
+                            </div>
+                            <span class="text-xs text-gray-500">(56)</span>
+                        </div>
+                        <p class="font-extrabold text-primary text-xl">$45.00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mb-20">
+            <div
+                class="relative h-[300px] rounded-3xl overflow-hidden bg-white/5 border border-white/5 flex items-center justify-center text-center p-8">
+                <div
+                    class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent">
+                </div>
+                <div class="relative z-10 space-y-4">
+                    <h2 class="text-4xl font-extrabold tracking-tighter text-white">Season Sale: 20% Off</h2>
+                    <p class="text-lg max-w-md mx-auto text-gray-300">Refresh your eco-lifestyle with our exclusive
+                        seasonal discounts. Use code <span
+                            class="font-bold underline decoration-primary decoration-2">GREENSPRING</span></p>
+                    <button
+                        class="bg-primary text-background-dark px-8 py-3 rounded-xl font-bold hover:scale-105 transition-transform">Shop
+                        the Sale</button>
+                </div>
+            </div>
+        </section>
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold tracking-tight mb-4 text-white">Our Community Says</h2>
+                <div class="flex justify-center text-primary">
+                    <span class="material-symbols-outlined !text-4xl">format_quote</span>
+                </div>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-surface-dark border border-white/5 rounded-3xl p-10 md:p-16 text-center relative">
+                    <p class="text-xl md:text-2xl font-medium leading-relaxed mb-10 text-gray-200">
+                        "EcoMart has completely changed how I shop. The quality of their organic products is unmatched,
+                        and I feel good knowing every purchase supports ethical practices and carbon offsetting."
+                    </p>
+                    <div class="flex flex-col items-center gap-3">
+                        <div class="size-16 rounded-full bg-cover bg-center ring-4 ring-primary/20"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC_4-mKYGgDSG62eQQBsGZiboVD5HKgJIzyQ9J1vrjiLVAKMDd9J7Ex67W-QMhd9WGFha55AyG5_OZVHiff9GFykJjYTOPGB_ovf58gWslPopxGiTyDUR5C5UcsjlSw2ty_bePVGI3AhoYthhiohweE-TGVY3gCAO44KmTbFS9fw55r0B7owBY0q7c-50KGU5CQweLiofMif0ZSQePPQ42wKwISuxToqupBQGiOCv99eIJ-0wTJq8RIMjW6A1gjEq0mawPADDwRWT9k');">
+                        </div>
+                        <div>
+                            <p class="font-bold text-white">Sarah Jenkins</p>
+                            <p class="text-sm text-primary">Verified Buyer</p>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+                        <div class="size-2 rounded-full bg-primary"></div>
+                        <div class="size-2 rounded-full bg-white/10"></div>
+                        <div class="size-2 rounded-full bg-white/10"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bg-primary text-background-dark rounded-3xl p-12 lg:p-20 mb-20 overflow-hidden relative">
+            <div class="absolute top-0 right-0 w-1/3 h-full bg-white/10 -skew-x-12"></div>
+            <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24 items-center">
+                <div>
+                    <h2 class="text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">We are growing <br />a better
+                        world.</h2>
+                    <p class="text-background-dark/80 text-lg leading-relaxed mb-8">
+                        Our mission is beyond selling products. We reinvest a portion of every sale into reforestation
+                        projects and plastic-free ocean initiatives.
+                    </p>
+                    <button
+                        class="bg-background-dark text-primary px-8 py-3.5 rounded-xl font-bold hover:brightness-125 transition-colors">Our
+                        Full Impact Report</button>
+                </div>
+                <div class="grid grid-cols-2 gap-8">
+                    <div class="space-y-2 border-l-2 border-background-dark/20 pl-6">
+                        <h4 class="text-5xl font-extrabold">125k+</h4>
+                        <p class="text-background-dark/70 uppercase tracking-widest font-bold text-xs">Trees Planted</p>
+                    </div>
+                    <div class="space-y-2 border-l-2 border-background-dark/20 pl-6">
+                        <h4 class="text-5xl font-extrabold">500k</h4>
+                        <p class="text-background-dark/70 uppercase tracking-widest font-bold text-xs">Lbs Plastic Saved
+                        </p>
+                    </div>
+                    <div class="space-y-2 border-l-2 border-background-dark/20 pl-6">
+                        <h4 class="text-5xl font-extrabold">42k</h4>
+                        <p class="text-background-dark/70 uppercase tracking-widest font-bold text-xs">Active
+                            Eco-Warriors</p>
+                    </div>
+                    <div class="space-y-2 border-l-2 border-background-dark/20 pl-6">
+                        <h4 class="text-5xl font-extrabold">100%</h4>
+                        <p class="text-background-dark/70 uppercase tracking-widest font-bold text-xs">Carbon Neutral
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold tracking-tight mb-4 text-white">Nature's Best Materials We Love</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">We choose our materials based on their environmental
+                    footprint,
+                    durability, and life-cycle sustainability.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div
+                    class="bg-surface-dark p-8 rounded-3xl border border-white/5 text-center group hover:border-primary/30 transition-all duration-300">
+                    <div
+                        class="size-16 mx-auto mb-6 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined !text-4xl">yard</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Organic Cotton</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">Grown without toxic pesticides, saving 91% more
+                        water than
+                        conventional cotton.</p>
+                </div>
+                <div
+                    class="bg-surface-dark p-8 rounded-3xl border border-white/5 text-center group hover:border-primary/30 transition-all duration-300">
+                    <div
+                        class="size-16 mx-auto mb-6 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined !text-4xl">forest</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Bamboo</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">The world's fastest-growing plant. Regenerative,
+                        carbon-absorbing, and biodegradable.</p>
+                </div>
+                <div
+                    class="bg-surface-dark p-8 rounded-3xl border border-white/5 text-center group hover:border-primary/30 transition-all duration-300">
+                    <div
+                        class="size-16 mx-auto mb-6 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined !text-4xl">wine_bar</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Recycled Glass</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">Infinitely recyclable without loss in quality,
+                        reducing
+                        energy use and raw material extraction.</p>
+                </div>
+                <div
+                    class="bg-surface-dark p-8 rounded-3xl border border-white/5 text-center group hover:border-primary/30 transition-all duration-300">
+                    <div
+                        class="size-16 mx-auto mb-6 bg-primary/10 rounded-2xl flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined !text-4xl">category</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Natural Cork</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">Harvested from bark without harming trees.
+                        Carbon-negative
+                        and naturally antimicrobial.</p>
+                </div>
+            </div>
+        </section>
+        <section class="mb-20 bg-surface-dark border border-white/5 rounded-3xl p-10 lg:p-16 overflow-hidden relative">
+            <div class="absolute -right-20 -top-20 size-80 bg-primary/5 rounded-full blur-3xl"></div>
+            <div class="relative z-10 flex flex-col lg:flex-row gap-12 items-center">
+                <div class="lg:w-3/5">
+                    <h2 class="text-3xl lg:text-4xl font-extrabold text-white mb-6">Our Guarantee - Authentically
+                        Eco-Friendly,
+                        No Greenwashing</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-8">
+                        We don't just take a brand's word for it. Our 5-step vetting process scrutinizes everything from
+                        raw
+                        material sourcing and factory working conditions to packaging and end-of-life recyclability. If
+                        it
+                        doesn't meet our rigorous standards, it doesn't make it to our store.
+                    </p>
+                    <div class="flex flex-wrap gap-6">
+                        <div
+                            class="flex items-center gap-3 bg-background-dark/50 px-5 py-3 rounded-2xl border border-white/10">
+                            <span class="material-symbols-outlined text-primary">verified_user</span>
+                            <span class="text-sm font-bold text-white">Vetted Suppliers</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 bg-background-dark/50 px-5 py-3 rounded-2xl border border-white/10">
+                            <span class="material-symbols-outlined text-primary">gpp_good</span>
+                            <span class="text-sm font-bold text-white">Ethical Sourcing</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 bg-background-dark/50 px-5 py-3 rounded-2xl border border-white/10">
+                            <span class="material-symbols-outlined text-primary">package_2</span>
+                            <span class="text-sm font-bold text-white">Plastic-Free</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-2/5 flex justify-center">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div
+                            class="size-32 bg-background-dark rounded-2xl flex flex-col items-center justify-center gap-2 border border-white/5">
+                            <span class="material-symbols-outlined !text-4xl text-primary">rewarded_ads</span>
+                            <span class="text-[10px] uppercase font-bold text-gray-500">Certified B Corp</span>
+                        </div>
+                        <div
+                            class="size-32 bg-background-dark rounded-2xl flex flex-col items-center justify-center gap-2 border border-white/5">
+                            <span class="material-symbols-outlined !text-4xl text-primary">energy_savings_leaf</span>
+                            <span class="text-[10px] uppercase font-bold text-gray-500">1% For Planet</span>
+                        </div>
+                        <div
+                            class="size-32 bg-background-dark rounded-2xl flex flex-col items-center justify-center gap-2 border border-white/5">
+                            <span class="material-symbols-outlined !text-4xl text-primary">compost</span>
+                            <span class="text-[10px] uppercase font-bold text-gray-500">Soil Assoc.</span>
+                        </div>
+                        <div
+                            class="size-32 bg-background-dark rounded-2xl flex flex-col items-center justify-center gap-2 border border-white/5">
+                            <span class="material-symbols-outlined !text-4xl text-primary">tsunami</span>
+                            <span class="text-[10px] uppercase font-bold text-gray-500">Fair Trade</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mb-20 max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold tracking-tight mb-4 text-white">Frequently Asked Questions</h2>
+                <p class="text-gray-400">Everything you need to know about shopping consciously with us.</p>
+            </div>
+            <div class="space-y-4">
+                <div class="faq-item group">
+                    <input class="hidden" id="faq-1" name="faq-accordion" type="checkbox" />
+                    <label
+                        class="faq-header flex items-center justify-between p-6 bg-surface-dark rounded-2xl border border-white/5 cursor-pointer hover:border-primary/30 transition-colors"
+                        for="faq-1">
+                        <span class="text-lg font-bold text-white">What makes your shipping carbon neutral?</span>
+                        <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
+                    </label>
+                    <div class="faq-content bg-surface-dark px-6 rounded-b-2xl">
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            We calculate the carbon footprint of every delivery and offset it by investing in
+                            high-quality
+                            reforestation and renewable energy projects worldwide through our partnership with certified
+                            carbon-offset providers.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-item group">
+                    <input class="hidden" id="faq-2" name="faq-accordion" type="checkbox" />
+                    <label
+                        class="faq-header flex items-center justify-between p-6 bg-surface-dark rounded-2xl border border-white/5 cursor-pointer hover:border-primary/30 transition-colors"
+                        for="faq-2">
+                        <span class="text-lg font-bold text-white">How do I know the products are actually
+                            sustainable?</span>
+                        <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
+                    </label>
+                    <div class="faq-content bg-surface-dark px-6 rounded-b-2xl">
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Every product undergoes our "Eco-Audit" which checks for third-party certifications (like
+                            GOTS, Fair
+                            Trade, or FSC), investigates the supply chain transparency, and evaluates the materials'
+                            environmental impact.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-item group">
+                    <input class="hidden" id="faq-3" name="faq-accordion" type="checkbox" />
+                    <label
+                        class="faq-header flex items-center justify-between p-6 bg-surface-dark rounded-2xl border border-white/5 cursor-pointer hover:border-primary/30 transition-colors"
+                        for="faq-3">
+                        <span class="text-lg font-bold text-white">Do you offer plastic-free packaging?</span>
+                        <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
+                    </label>
+                    <div class="faq-content bg-surface-dark px-6 rounded-b-2xl">
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Absolutely. All our orders are shipped in 100% recycled, compostable, or recyclable
+                            materials. We
+                            use paper-based tape and starch-based packing peanuts that dissolve in water.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-item group">
+                    <input class="hidden" id="faq-4" name="faq-accordion" type="checkbox" />
+                    <label
+                        class="faq-header flex items-center justify-between p-6 bg-surface-dark rounded-2xl border border-white/5 cursor-pointer hover:border-primary/30 transition-colors"
+                        for="faq-4">
+                        <span class="text-lg font-bold text-white">What is your return policy?</span>
+                        <span class="material-symbols-outlined faq-icon text-primary">expand_more</span>
+                    </label>
+                    <div class="faq-content bg-surface-dark px-6 rounded-b-2xl">
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            We offer a 30-day window for returns of unused products in their original packaging. We
+                            encourage
+                            conscious purchasing to minimize the environmental impact of return shipping.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="max-w-3xl mx-auto text-center mb-20 py-10">
+            <h2 class="text-4xl font-extrabold tracking-tight mb-4 text-white">Join the Green Revolution</h2>
+            <p class="text-gray-400 text-lg mb-8">Get exclusive eco-tips, new product early access, and 10% off your
+                first order.</p>
+            <form class="flex flex-col sm:flex-row gap-3">
+                <input
+                    class="flex-1 h-14 px-6 rounded-2xl bg-white/5 border-2 border-white/10 focus:border-primary focus:ring-0 text-lg text-white"
+                    placeholder="Enter your email address" type="email" />
+                <button
+                    class="bg-primary text-background-dark h-14 px-10 rounded-2xl font-bold text-lg hover:brightness-110 shadow-lg shadow-primary/20">Subscribe</button>
+            </form>
+            <p class="text-xs text-gray-500 mt-4">By subscribing, you agree to our Privacy Policy and Terms of Service.
+            </p>
+        </section>
+    </main>
+    <footer class="bg-surface-dark pt-20 pb-10 border-t border-white/5">
+        <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3">
+                        <div class="size-8 bg-primary rounded-lg flex items-center justify-center text-background-dark">
+                            <span class="material-symbols-outlined">eco</span>
+                        </div>
+                        <h2 class="text-xl font-extrabold tracking-tight text-white">EcoMart</h2>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">
+                        The leading global marketplace for vetted sustainable goods. Making conscious consumption
+                        effortless and beautiful.
+                    </p>
+                    <div class="flex gap-4">
+                        <a class="size-10 rounded-full bg-white/5 flex items-center justify-center text-primary hover:bg-primary hover:text-background-dark transition-all"
+                            href="#"><span class="material-symbols-outlined">public</span></a>
+                        <a class="size-10 rounded-full bg-white/5 flex items-center justify-center text-primary hover:bg-primary hover:text-background-dark transition-all"
+                            href="#"><span class="material-symbols-outlined">camera_alt</span></a>
+                        <a class="size-10 rounded-full bg-white/5 flex items-center justify-center text-primary hover:bg-primary hover:text-background-dark transition-all"
+                            href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-extrabold mb-6 text-white">Shop</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><a class="hover:text-primary transition-colors" href="#">All Products</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Bestsellers</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">New Arrivals</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Sustainable Home</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Personal Care</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-extrabold mb-6 text-white">Company</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><a class="hover:text-primary transition-colors" href="#">Our Story</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Transparency</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Impact Report</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-extrabold mb-6 text-white">Support</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><a class="hover:text-primary transition-colors" href="#">Shipping Info</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Returns &amp; Exchanges</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">FAQ</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Track Order</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="pt-10 border-t border-white/5 flex flex-col md:row items-center justify-between gap-6 text-sm text-gray-500">
+                <p>© 2024 EcoMart Global Inc. All rights reserved.</p>
+                <div class="flex gap-8">
+                    <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+                    <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+                    <a class="hover:text-primary transition-colors" href="#">Cookie Settings</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

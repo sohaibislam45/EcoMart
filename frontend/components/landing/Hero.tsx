@@ -54,78 +54,82 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative h-[70vh] min-h-[600px] w-full overflow-hidden">
-            <AnimatePresence mode='wait'>
-                <motion.div
-                    key={current}
-                    variants={slideVariants}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                    transition={{ duration: 1 }}
-                    className="absolute inset-0 w-full h-full"
-                >
-                    <div
-                        className="absolute inset-0 bg-cover bg-center"
-                        style={{ backgroundImage: `url(${slides[current].image})` }}
-                    />
-                    <div className="absolute inset-0 bg-black/40 dark:bg-black/60" />
-                </motion.div>
-            </AnimatePresence>
-
-            <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-4 max-w-5xl mx-auto">
-                <motion.div
-                    key={`text-${current}`}
-                    variants={textVariants}
-                    initial="initial"
-                    animate="animate"
-                    className="space-y-6"
-                >
-                    <span className="inline-block py-1 px-3 rounded-full bg-green-500/20 backdrop-blur-sm border border-green-500/30 text-green-300 text-sm font-semibold tracking-wider uppercase">
-                        Sustainability First
-                    </span>
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight">
-                        {slides[current].title}
-                    </h1>
-                    <p className="text-lg md:text-xl text-neutral-200 max-w-2xl mx-auto">
-                        {slides[current].subtitle}
-                    </p>
-                    <div className="pt-4">
-                        <Link
-                            href={slides[current].link}
-                            className="inline-flex items-center space-x-2 bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-full font-medium transition-all transform hover:scale-105 shadow-lg shadow-primary-600/30"
+        <section className="relative pt-6 pb-12">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="relative h-[65vh] min-h-[500px] w-full rounded-[3rem] overflow-hidden shadow-2xl">
+                    <AnimatePresence mode='wait'>
+                        <motion.div
+                            key={current}
+                            variants={slideVariants}
+                            initial="initial"
+                            animate="animate"
+                            exit="exit"
+                            transition={{ duration: 1 }}
+                            className="absolute inset-0 w-full h-full"
                         >
-                            <span>{slides[current].cta}</span>
-                            <ArrowRight size={20} />
-                        </Link>
+                            <div
+                                className="absolute inset-0 bg-cover bg-center"
+                                style={{ backgroundImage: `url(${slides[current].image})` }}
+                            />
+                            <div className="absolute inset-0 bg-black/40 dark:bg-black/60" />
+                        </motion.div>
+                    </AnimatePresence>
+
+                    <div className="relative z-10 h-full flex flex-col justify-center items-center text-center px-6 md:px-12">
+                        <motion.div
+                            key={`text-${current}`}
+                            variants={textVariants}
+                            initial="initial"
+                            animate="animate"
+                            className="space-y-6 max-w-4xl"
+                        >
+                            <span className="inline-block py-1.5 px-4 rounded-full bg-primary-500/20 backdrop-blur-md border border-primary-500/30 text-primary-300 text-sm font-semibold tracking-wider uppercase">
+                                Eco-Conscious Selection
+                            </span>
+                            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.1]">
+                                {slides[current].title}
+                            </h1>
+                            <p className="text-lg md:text-xl text-neutral-100/90 max-w-2xl mx-auto leading-relaxed">
+                                {slides[current].subtitle}
+                            </p>
+                            <div className="pt-6">
+                                <Link
+                                    href={slides[current].link}
+                                    className="inline-flex items-center space-x-3 bg-white text-primary-700 px-10 py-5 rounded-full font-bold text-lg hover:bg-neutral-100 transition-all transform hover:scale-105 shadow-xl"
+                                >
+                                    <span>{slides[current].cta}</span>
+                                    <ArrowRight size={22} />
+                                </Link>
+                            </div>
+                        </motion.div>
                     </div>
-                </motion.div>
-            </div>
 
-            {/* Controls */}
-            <div className="absolute bottom-8 left-0 right-0 z-20 flex justify-center space-x-4">
-                {slides.map((_, index) => (
+                    {/* Controls */}
+                    <div className="absolute bottom-8 left-0 right-0 z-20 flex justify-center space-x-3">
+                        {slides.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setCurrent(index)}
+                                className={`h-1.5 rounded-full transition-all duration-500 ${current === index ? 'bg-white w-12' : 'bg-white/40 hover:bg-white/70 w-4'
+                                    }`}
+                            />
+                        ))}
+                    </div>
+
                     <button
-                        key={index}
-                        onClick={() => setCurrent(index)}
-                        className={`w-3 h-3 rounded-full transition-all ${current === index ? 'bg-white w-8' : 'bg-white/50 hover:bg-white/80'
-                            }`}
-                    />
-                ))}
+                        onClick={() => setCurrent((prev) => (prev - 1 + slides.length) % slides.length)}
+                        className="absolute left-6 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm transition-all hidden md:block border border-white/20"
+                    >
+                        <ChevronLeft size={28} />
+                    </button>
+                    <button
+                        onClick={() => setCurrent((prev) => (prev + 1) % slides.length)}
+                        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm transition-all hidden md:block border border-white/20"
+                    >
+                        <ChevronRight size={28} />
+                    </button>
+                </div>
             </div>
-
-            <button
-                onClick={() => setCurrent((prev) => (prev - 1 + slides.length) % slides.length)}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/20 text-white hover:bg-black/40 backdrop-blur-sm transition-colors hidden md:block"
-            >
-                <ChevronLeft size={32} />
-            </button>
-            <button
-                onClick={() => setCurrent((prev) => (prev + 1) % slides.length)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/20 text-white hover:bg-black/40 backdrop-blur-sm transition-colors hidden md:block"
-            >
-                <ChevronRight size={32} />
-            </button>
         </section>
     );
 }

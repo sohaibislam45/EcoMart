@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>EcoMart | Sustainable Product Listing</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#22c38e",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#12201b",
+                        "forest-dark": "#1a2e26",
+                        "forest-muted": "#27453b",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .filled-star {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .product-card-hover:hover .zoom-img {
+            transform: scale(1.05);
+        }
+
+        input[type='range']::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #22c38e;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        body {
+            --checkbox-tick-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(18,33,28)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3cpath d=%27M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z%27/%3e%3c/svg%3e');
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-white min-h-screen">
+    <!-- Navigation Bar -->
+    <header
+        class="sticky top-0 z-50 bg-background-dark/80 backdrop-blur-md border-b border-forest-muted px-4 md:px-10 lg:px-20 py-4">
+        <div class="max-w-[1440px] mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="bg-primary p-1.5 rounded-lg">
+                    <span class="material-symbols-outlined text-background-dark block"
+                        style="font-size: 24px;">eco</span>
+                </div>
+                <h2 class="text-xl font-bold tracking-tight">EcoMart</h2>
+            </div>
+            <nav class="hidden md:flex items-center gap-8">
+                <a class="text-white/70 hover:text-primary text-sm font-medium transition-colors" href="#">Home</a>
+                <a class="text-primary text-sm font-bold border-b-2 border-primary pb-1" href="#">Shop</a>
+                <a class="text-white/70 hover:text-primary text-sm font-medium transition-colors" href="#">About</a>
+                <a class="text-white/70 hover:text-primary text-sm font-medium transition-colors"
+                    href="#">Sustainability</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <button class="p-2 rounded-xl bg-forest-muted text-white hover:bg-forest-muted/80 transition-all">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                </button>
+                <button class="p-2 rounded-xl bg-forest-muted text-white hover:bg-forest-muted/80 transition-all">
+                    <span class="material-symbols-outlined">person</span>
+                </button>
+                <button
+                    class="hidden sm:flex bg-primary hover:bg-primary/90 text-background-dark px-5 py-2 rounded-xl font-bold text-sm transition-all">
+                    Sign Up
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-[1440px] mx-auto px-4 md:px-10 lg:px-20 py-8">
+        <!-- Breadcrumbs -->
+        <div class="flex items-center gap-2 mb-8 text-sm">
+            <a class="text-white/50 hover:text-primary transition-colors" href="#">Home</a>
+            <span class="material-symbols-outlined text-xs text-white/30">chevron_right</span>
+            <span class="text-white font-medium">Products</span>
+        </div>
+        <div class="flex flex-col lg:flex-row gap-10">
+            <!-- Sidebar Filters -->
+            <aside class="w-full lg:w-72 flex-shrink-0 space-y-8">
+                <!-- Search -->
+                <div class="space-y-3">
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-white/40">Search</h3>
+                    <div class="relative group">
+                        <span
+                            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-white/40 group-focus-within:text-primary transition-colors">search</span>
+                        <input
+                            class="w-full bg-forest-dark border-forest-muted focus:border-primary focus:ring-1 focus:ring-primary rounded-xl pl-10 pr-4 py-3 text-sm placeholder:text-white/30 transition-all"
+                            placeholder="Search eco-products..." type="text" />
+                    </div>
+                </div>
+                <!-- Categories -->
+                <div class="space-y-4">
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-white/40">Categories</h3>
+                    <div class="space-y-2">
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input checked=""
+                                class="h-5 w-5 rounded border-forest-muted border-2 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0"
+                                type="checkbox" />
+                            <span class="text-white/80 group-hover:text-white transition-colors">Home &amp;
+                                Living</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input
+                                class="h-5 w-5 rounded border-forest-muted border-2 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0"
+                                type="checkbox" />
+                            <span class="text-white/80 group-hover:text-white transition-colors">Kitchen</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input
+                                class="h-5 w-5 rounded border-forest-muted border-2 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0"
+                                type="checkbox" />
+                            <span class="text-white/80 group-hover:text-white transition-colors">Personal Care</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input
+                                class="h-5 w-5 rounded border-forest-muted border-2 bg-transparent text-primary checked:bg-primary checked:border-primary focus:ring-0 focus:ring-offset-0"
+                                type="checkbox" />
+                            <span class="text-white/80 group-hover:text-white transition-colors">Sustainable
+                                Fashion</span>
+                        </label>
+                    </div>
+                </div>
+                <!-- Price Range -->
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-sm font-bold uppercase tracking-wider text-white/40">Price Range</h3>
+                        <span class="text-xs text-primary font-bold">$0 - $250</span>
+                    </div>
+                    <div class="relative h-2 bg-forest-muted rounded-full">
+                        <div class="absolute left-0 right-1/4 h-full bg-primary/40 rounded-full"></div>
+                        <input class="absolute w-full appearance-none bg-transparent pointer-events-none -top-2"
+                            max="500" min="0" type="range" />
+                    </div>
+                </div>
+                <!-- Ratings -->
+                <div class="space-y-4">
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-white/40">Rating</h3>
+                    <div class="space-y-2">
+                        <button class="flex items-center gap-2 text-sm text-white/70 hover:text-primary transition-all">
+                            <div class="flex text-primary">
+                                <span class="material-symbols-outlined filled-star text-base">star</span>
+                                <span class="material-symbols-outlined filled-star text-base">star</span>
+                                <span class="material-symbols-outlined filled-star text-base">star</span>
+                                <span class="material-symbols-outlined filled-star text-base">star</span>
+                                <span class="material-symbols-outlined filled-star text-base">star</span>
+                            </div>
+                            <span>5.0</span>
+                        </button>
+                        <button class="flex items-center gap-2 text-sm text-white/70 hover:text-primary transition-all">
+                            <div class="flex text-primary">
+                                <span class="material-symbols-outlined filled-star text-base">star</span>
+                                <span class="material-symbols-outlined filled-star text-base">star</span>
+                                <span class="material-symbols-outlined filled-star text-base">star</span>
+                                <span class="material-symbols-outlined filled-star text-base">star</span>
+                                <span class="material-symbols-outlined text-base">star</span>
+                            </div>
+                            <span>4.0 &amp; up</span>
+                        </button>
+                    </div>
+                </div>
+                <button
+                    class="w-full bg-primary hover:bg-primary/90 text-background-dark py-3 rounded-xl font-bold transition-all shadow-lg shadow-primary/10">
+                    Apply Filters
+                </button>
+            </aside>
+            <!-- Product Grid -->
+            <div class="flex-1">
+                <div class="flex justify-between items-center mb-8">
+                    <h1 class="text-2xl font-bold">Recommended Products <span
+                            class="text-white/30 font-normal ml-2 text-lg">(24 items)</span></h1>
+                    <div
+                        class="flex items-center gap-2 bg-forest-dark border border-forest-muted rounded-lg px-3 py-1.5 cursor-pointer hover:bg-forest-muted transition-colors">
+                        <span class="text-sm font-medium">Sort by: Featured</span>
+                        <span class="material-symbols-outlined text-sm">expand_more</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+                    <!-- Product Card 1 -->
+                    <div
+                        class="product-card-hover group bg-forest-dark border border-forest-muted hover:border-primary/50 rounded-xl overflow-hidden transition-all duration-300">
+                        <div class="relative aspect-square overflow-hidden">
+                            <img alt="Bamboo Cutlery"
+                                class="zoom-img w-full h-full object-cover transition-transform duration-500"
+                                data-alt="Modern bamboo cutlery set on a dark wooden table"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXJnVmWn9Is1mKpRswUukgDaii33dZUo9eZORxKlcMjqPNn5frpFfvOPHgloIVGJsE3-0cqCr2H-1OQx_jqTy0sIhHpVkRhnoYjfcXoI3u1xgUzSUOieUz3Cw18bigF18sWNiYup2Bh0yYdJ4AOq9hBw4dYWSh38PTGazsAGZgSW5QeGSnE2LY3nGOkgmuxDNoEQXi8Tzf1J2ZtVSsbNXA7SEIw8HSj4yiywCM2tnyLFSFCoKE_GTxAOSq2I9-pp2wYfdUoqjvIutX" />
+                            <div
+                                class="absolute top-3 left-3 bg-background-dark/80 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold uppercase tracking-widest text-primary border border-primary/20">
+                                Kitchen
+                            </div>
+                            <button
+                                class="absolute top-3 right-3 p-2 bg-background-dark/40 backdrop-blur-md rounded-full text-white hover:text-red-400 transition-colors">
+                                <span class="material-symbols-outlined text-lg">favorite</span>
+                            </button>
+                        </div>
+                        <div class="p-5 space-y-3">
+                            <div>
+                                <h3 class="font-bold text-white group-hover:text-primary transition-colors truncate">
+                                    Premium Bamboo Cutlery Set</h3>
+                                <div class="flex items-center gap-1 mt-1">
+                                    <div class="flex text-primary">
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                    </div>
+                                    <span class="text-[10px] text-white/40">(124 reviews)</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-primary">$34.99</span>
+                                <button
+                                    class="text-sm font-bold bg-forest-muted hover:bg-primary hover:text-background-dark px-4 py-2 rounded-lg transition-all">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 2 -->
+                    <div
+                        class="product-card-hover group bg-forest-dark border border-forest-muted hover:border-primary/50 rounded-xl overflow-hidden transition-all duration-300">
+                        <div class="relative aspect-square overflow-hidden">
+                            <img alt="Eco Soap"
+                                class="zoom-img w-full h-full object-cover transition-transform duration-500"
+                                data-alt="Handmade organic shampoo bar with botanical ingredients"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDM36lmp-8TXCDOjnDC4KaUTQSKyXdPDR8hFnbJ4ab4aN-sJrZNjPutl19M8jo4mQWmKhmCG99mOAWlgsNmCHcHHp5hHK7pENC3qGn5LVPXRcIAMArpt5cciZ0glwD0qFI_qHG3kfgvtsFn0ods-bDhyEg4XSYgbdChE9PDPyhctWXmpjLPiatNx4z_vkwM95ScBEM4_8eVRJyCsh8QTM5ZDiRtcjbZCwQybu-G4ZTIJHzuZqkgkBgt6mbCbWWwdWtzCcfesb1kQvWY" />
+                            <div
+                                class="absolute top-3 left-3 bg-background-dark/80 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold uppercase tracking-widest text-primary border border-primary/20">
+                                Personal Care
+                            </div>
+                            <button
+                                class="absolute top-3 right-3 p-2 bg-background-dark/40 backdrop-blur-md rounded-full text-white hover:text-red-400 transition-colors">
+                                <span class="material-symbols-outlined text-lg">favorite</span>
+                            </button>
+                        </div>
+                        <div class="p-5 space-y-3">
+                            <div>
+                                <h3 class="font-bold text-white group-hover:text-primary transition-colors truncate">
+                                    Lavender Shampoo Bar</h3>
+                                <div class="flex items-center gap-1 mt-1">
+                                    <div class="flex text-primary">
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined text-xs">star</span>
+                                    </div>
+                                    <span class="text-[10px] text-white/40">(89 reviews)</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-primary">$18.50</span>
+                                <button
+                                    class="text-sm font-bold bg-forest-muted hover:bg-primary hover:text-background-dark px-4 py-2 rounded-lg transition-all">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 3 -->
+                    <div
+                        class="product-card-hover group bg-forest-dark border border-forest-muted hover:border-primary/50 rounded-xl overflow-hidden transition-all duration-300">
+                        <div class="relative aspect-square overflow-hidden">
+                            <img alt="Solar Charger"
+                                class="zoom-img w-full h-full object-cover transition-transform duration-500"
+                                data-alt="High efficiency portable solar power bank"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3VxhoYsNkX-7ismjaN9QWF5CMeVgEtnDGZWBN6C1RHAfm8fa9WNtA84GW-QgxAV-6daxEgGuPt74F3HiV-rPoGpbVmhlB4S2K57PAl6gZX9KQVYXXdwbKruQtvnDNPzK0a4qIMNe9wljZneqr-Y-BjJt9slJJu9v3V6B6HqRqfH-DRB_cAM3fMd-Ufd6ApzK-AsJPG6GD1SV5caYpNE1ci_RmEv2riLOjewDFcnno8L1Zfi2_jCdZUt9I8YrmWXLsvRkX4eHEvYCm" />
+                            <div
+                                class="absolute top-3 left-3 bg-background-dark/80 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold uppercase tracking-widest text-primary border border-primary/20">
+                                Electronics
+                            </div>
+                            <button
+                                class="absolute top-3 right-3 p-2 bg-background-dark/40 backdrop-blur-md rounded-full text-white hover:text-red-400 transition-colors">
+                                <span class="material-symbols-outlined text-lg">favorite</span>
+                            </button>
+                        </div>
+                        <div class="p-5 space-y-3">
+                            <div>
+                                <h3 class="font-bold text-white group-hover:text-primary transition-colors truncate">
+                                    Portable Solar Power Bank</h3>
+                                <div class="flex items-center gap-1 mt-1">
+                                    <div class="flex text-primary">
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span
+                                            class="material-symbols-outlined filled-star text-xs text-primary/30">star</span>
+                                    </div>
+                                    <span class="text-[10px] text-white/40">(210 reviews)</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-primary">$59.00</span>
+                                <button
+                                    class="text-sm font-bold bg-forest-muted hover:bg-primary hover:text-background-dark px-4 py-2 rounded-lg transition-all">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 4 -->
+                    <div
+                        class="product-card-hover group bg-forest-dark border border-forest-muted hover:border-primary/50 rounded-xl overflow-hidden transition-all duration-300">
+                        <div class="relative aspect-square overflow-hidden">
+                            <img alt="Tote Bag"
+                                class="zoom-img w-full h-full object-cover transition-transform duration-500"
+                                data-alt="Organic cotton canvas tote bag with botanical print"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI_dLyEOmOZ1IhlMLSF0kvsHt7kC9qDjWjZYNuJ1XWBlL133eQu8Sgas_7dzv_iYlNXuaPByINuqJAP_2ZtfQ5n1AEGrOVrVV42z5x6pT4Spao9QwCQ8m_q5Ht5L4u3aVfiDihoV6FOBWc0u-5JBP56KXbufoNYAMryN3dUH-vgOEb7ctzFINHkLM8hv8jYuQr7kPBlciLBbq-M6UAtYJc4WfiwOnz7OF7TG4noNk5pk7asiQhVk281XhGqD3V2gmJEHP8aTngr4Ns" />
+                            <div
+                                class="absolute top-3 left-3 bg-background-dark/80 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold uppercase tracking-widest text-primary border border-primary/20">
+                                Fashion
+                            </div>
+                            <button
+                                class="absolute top-3 right-3 p-2 bg-background-dark/40 backdrop-blur-md rounded-full text-white hover:text-red-400 transition-colors">
+                                <span class="material-symbols-outlined text-lg">favorite</span>
+                            </button>
+                        </div>
+                        <div class="p-5 space-y-3">
+                            <div>
+                                <h3 class="font-bold text-white group-hover:text-primary transition-colors truncate">
+                                    Organic Cotton Tote</h3>
+                                <div class="flex items-center gap-1 mt-1">
+                                    <div class="flex text-primary">
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                    </div>
+                                    <span class="text-[10px] text-white/40">(342 reviews)</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-primary">$25.00</span>
+                                <button
+                                    class="text-sm font-bold bg-forest-muted hover:bg-primary hover:text-background-dark px-4 py-2 rounded-lg transition-all">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Duplicate for visual density -->
+                    <!-- Product Card 5 -->
+                    <div
+                        class="product-card-hover group bg-forest-dark border border-forest-muted hover:border-primary/50 rounded-xl overflow-hidden transition-all duration-300">
+                        <div class="relative aspect-square overflow-hidden">
+                            <img alt="Eco Bottle"
+                                class="zoom-img w-full h-full object-cover transition-transform duration-500"
+                                data-alt="Recycled stainless steel water bottle in forest green"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwE_fWrpTbQ_46TMiRPGlXV-3QtMAEdpA05ptffRDggx-ogJsUoYs0ITjoHysVOI_wr5hJbmVVwQeIbXVstpRsrGnoYbwLXzX8kOwpRw9WcoWiyzv3mTky4jslsfe71Tssd8yf2xAsG6uAnJeIMTLRdlIrxbje_1YR0fjbhjJfElVoR92EmQwcadOPUHM_svhEQXxDVt5tJ-yWgijGjQO-8rtTTlQC7IrgHii7fRJndrEsO9jsgXMR-hnTe4jvzJpdSKImiV4qK5Lp" />
+                            <div
+                                class="absolute top-3 left-3 bg-background-dark/80 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold uppercase tracking-widest text-primary border border-primary/20">
+                                Home
+                            </div>
+                            <button
+                                class="absolute top-3 right-3 p-2 bg-background-dark/40 backdrop-blur-md rounded-full text-white hover:text-red-400 transition-colors">
+                                <span class="material-symbols-outlined text-lg">favorite</span>
+                            </button>
+                        </div>
+                        <div class="p-5 space-y-3">
+                            <div>
+                                <h3 class="font-bold text-white group-hover:text-primary transition-colors truncate">
+                                    Insulated Copper Bottle</h3>
+                                <div class="flex items-center gap-1 mt-1">
+                                    <div class="flex text-primary">
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined text-xs">star</span>
+                                    </div>
+                                    <span class="text-[10px] text-white/40">(56 reviews)</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-primary">$42.00</span>
+                                <button
+                                    class="text-sm font-bold bg-forest-muted hover:bg-primary hover:text-background-dark px-4 py-2 rounded-lg transition-all">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 6 -->
+                    <div
+                        class="product-card-hover group bg-forest-dark border border-forest-muted hover:border-primary/50 rounded-xl overflow-hidden transition-all duration-300">
+                        <div class="relative aspect-square overflow-hidden">
+                            <img alt="Beeswax Wrap"
+                                class="zoom-img w-full h-full object-cover transition-transform duration-500"
+                                data-alt="Natural beeswax food wraps in decorative patterns"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKkHjLJphcMl0aj1j5Vp8iKzGDrxGROsR36gQ7uqda3akQl56kGHEOwM-XCZogSBCBvkTHT0gzbZLna5DZ3wWU_OijfhUcMe4oO8CTIkfJV-RlRfZMAsLMHgue4ND7aa1PnHvdjfnw8_2REepHIQimq-YHYP2-O4hCPnEjaTdhXRlTEpPyVaWubPTkDonmKUDzJ79wqJm6URf_KyK-8QSXgrGJWqa8MteKCwj55EgbaJNANTn77Uec_TugPV3u1Ci1wKPT4luVXolD" />
+                            <div
+                                class="absolute top-3 left-3 bg-background-dark/80 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold uppercase tracking-widest text-primary border border-primary/20">
+                                Kitchen
+                            </div>
+                            <button
+                                class="absolute top-3 right-3 p-2 bg-background-dark/40 backdrop-blur-md rounded-full text-white hover:text-red-400 transition-colors">
+                                <span class="material-symbols-outlined text-lg">favorite</span>
+                            </button>
+                        </div>
+                        <div class="p-5 space-y-3">
+                            <div>
+                                <h3 class="font-bold text-white group-hover:text-primary transition-colors truncate">
+                                    Beeswax Food Wraps (Set of 3)</h3>
+                                <div class="flex items-center gap-1 mt-1">
+                                    <div class="flex text-primary">
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                    </div>
+                                    <span class="text-[10px] text-white/40">(18 reviews)</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-primary">$19.99</span>
+                                <button
+                                    class="text-sm font-bold bg-forest-muted hover:bg-primary hover:text-background-dark px-4 py-2 rounded-lg transition-all">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 7 -->
+                    <div
+                        class="product-card-hover group bg-forest-dark border border-forest-muted hover:border-primary/50 rounded-xl overflow-hidden transition-all duration-300">
+                        <div class="relative aspect-square overflow-hidden">
+                            <img alt="Compost Bin"
+                                class="zoom-img w-full h-full object-cover transition-transform duration-500"
+                                data-alt="Sleek minimalist indoor compost bin for kitchen counter"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCooE6sbePf0ym5aGiP8rgNHyXQh1p_RS4yx_2hCccgaM8QQl-gCnNAImDkoKlzOyxjoRZWW7TjZDwxFre3wX4yYnMq18gzH7y_ArNzlI2BH9JaHoqmIQjgy0AVenJQLc-u0rqXv_QCvyTkQgTMhsiNGQYKPZg_0WkN7gqQgynlryr7LO9XqJ06aWKt2JjAiiGRiKgVWF96cb2Vhednh1u37lFl_W4YoKhYkYnbP3jxdGND2BtLGE4lQUUhW9knyw8DzvKHKB_9LoHF" />
+                            <div
+                                class="absolute top-3 left-3 bg-background-dark/80 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold uppercase tracking-widest text-primary border border-primary/20">
+                                Home
+                            </div>
+                            <button
+                                class="absolute top-3 right-3 p-2 bg-background-dark/40 backdrop-blur-md rounded-full text-white hover:text-red-400 transition-colors">
+                                <span class="material-symbols-outlined text-lg">favorite</span>
+                            </button>
+                        </div>
+                        <div class="p-5 space-y-3">
+                            <div>
+                                <h3 class="font-bold text-white group-hover:text-primary transition-colors truncate">
+                                    Minimalist Countertop Composter</h3>
+                                <div class="flex items-center gap-1 mt-1">
+                                    <div class="flex text-primary">
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined text-xs">star</span>
+                                    </div>
+                                    <span class="text-[10px] text-white/40">(92 reviews)</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-primary">$45.00</span>
+                                <button
+                                    class="text-sm font-bold bg-forest-muted hover:bg-primary hover:text-background-dark px-4 py-2 rounded-lg transition-all">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 8 -->
+                    <div
+                        class="product-card-hover group bg-forest-dark border border-forest-muted hover:border-primary/50 rounded-xl overflow-hidden transition-all duration-300">
+                        <div class="relative aspect-square overflow-hidden">
+                            <img alt="Eco T-shirt"
+                                class="zoom-img w-full h-full object-cover transition-transform duration-500"
+                                data-alt="Simple white t-shirt made from recycled cotton"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL-ZYCwLvn4VBp5iUqZKWUh0fmOTXVl-rG8dWyZbai74p4DRcRDgu04tXHn9gz1rHAMaRmCnQgmxCgGuSedRCpLbOaQbIPZV97IzWc3-IU1xcRRXm7tQxY69xrrX95LhsiQ783iL1yocJYT4imRk_XXTptM3mwO7eZ4_utO-l2lhHZtbQb29_dEPbH9fkRDlPv9YLVGKoE99rKGc6kU0lgqA9QHXvsol7u6-iDg2lqdwqy8wB2PHMR4rAYcEBLyQYZ6U3lXmEO7Pid" />
+                            <div
+                                class="absolute top-3 left-3 bg-background-dark/80 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold uppercase tracking-widest text-primary border border-primary/20">
+                                Fashion
+                            </div>
+                            <button
+                                class="absolute top-3 right-3 p-2 bg-background-dark/40 backdrop-blur-md rounded-full text-white hover:text-red-400 transition-colors">
+                                <span class="material-symbols-outlined text-lg">favorite</span>
+                            </button>
+                        </div>
+                        <div class="p-5 space-y-3">
+                            <div>
+                                <h3 class="font-bold text-white group-hover:text-primary transition-colors truncate">
+                                    Recycled Cotton Tee</h3>
+                                <div class="flex items-center gap-1 mt-1">
+                                    <div class="flex text-primary">
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                        <span class="material-symbols-outlined filled-star text-xs">star</span>
+                                    </div>
+                                    <span class="text-[10px] text-white/40">(156 reviews)</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-primary">$29.99</span>
+                                <button
+                                    class="text-sm font-bold bg-forest-muted hover:bg-primary hover:text-background-dark px-4 py-2 rounded-lg transition-all">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Load More Section -->
+                <div class="mt-16 flex flex-col items-center gap-4">
+                    <p class="text-white/40 text-sm">Showing 8 of 24 products</p>
+                    <div class="w-48 h-1 bg-forest-muted rounded-full overflow-hidden">
+                        <div class="w-1/3 h-full bg-primary rounded-full"></div>
+                    </div>
+                    <button
+                        class="mt-4 flex items-center gap-2 bg-transparent hover:bg-forest-muted border border-forest-muted px-8 py-3 rounded-xl font-bold transition-all text-white">
+                        <span>Load More Products</span>
+                        <span class="material-symbols-outlined">expand_more</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Simple Dark Footer -->
+    <footer class="mt-20 border-t border-forest-muted bg-background-dark py-12 px-10">
+        <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="bg-primary p-1 rounded-lg">
+                        <span class="material-symbols-outlined text-background-dark block"
+                            style="font-size: 20px;">eco</span>
+                    </div>
+                    <h2 class="text-lg font-bold tracking-tight">EcoMart</h2>
+                </div>
+                <p class="text-white/50 text-sm leading-relaxed">
+                    Dedicated to providing premium sustainable products that protect our planet without compromising on
+                    quality or style.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Shop</h4>
+                <ul class="text-white/50 text-sm space-y-2">
+                    <li><a class="hover:text-primary transition-colors" href="#">All Products</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">New Arrivals</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Best Sellers</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Gift Cards</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Help</h4>
+                <ul class="text-white/50 text-sm space-y-2">
+                    <li><a class="hover:text-primary transition-colors" href="#">Shipping Info</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Returns &amp; Exchanges</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Sustainability Certs</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Newsletter</h4>
+                <p class="text-white/50 text-xs mb-4">Join our community for eco-tips and exclusive offers.</p>
+                <div class="flex gap-2">
+                    <input
+                        class="bg-forest-dark border-forest-muted rounded-lg flex-1 text-sm focus:ring-primary focus:border-primary"
+                        placeholder="Your email" type="email" />
+                    <button class="bg-primary text-background-dark px-4 py-2 rounded-lg font-bold text-sm">Join</button>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-[1440px] mx-auto mt-12 pt-8 border-t border-forest-muted flex flex-col md:flex-row justify-between items-center gap-4 text-white/30 text-xs">
+            <p>© 2024 EcoMart Sustainable E-Commerce. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+                <a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+                <a class="hover:text-white transition-colors" href="#">Cookies</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

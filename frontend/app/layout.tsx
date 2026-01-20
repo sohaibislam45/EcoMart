@@ -1,16 +1,15 @@
 import type { Metadata } from 'next';
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Manrope } from 'next/font/google';
 import './globals.css';
 import Providers from '@/components/Providers';
 import Navbar from '@/components/ui/Navbar';
 import Footer from '@/components/ui/Footer';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' });
+const manrope = Manrope({ subsets: ['latin'], variable: '--font-manrope' });
 
 export const metadata: Metadata = {
-  title: 'EcoMart - Sustainable Product Store',
-  description: 'Your one-stop shop for eco-friendly and sustainable products.',
+  title: 'EcoMart | Sustainable Living Starts Here',
+  description: 'Curated collection of everyday products designed for a better, greener tomorrow.',
 };
 
 export default function RootLayout({
@@ -19,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased min-h-screen flex flex-col`}>
+    <html lang="en" className="dark">
+      <body className={`${manrope.variable} font-sans antialiased bg-background-dark text-off-white min-h-screen flex flex-col`}>
         <Providers>
           <Navbar />
           <main className="flex-grow">

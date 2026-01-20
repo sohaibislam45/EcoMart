@@ -159,21 +159,29 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 bg-primary-600 text-white text-center">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">
-            Ready to Start Your Eco Journey?
-          </h2>
-          <p className="text-xl text-primary-100 mb-10">
-            Join thousands of others who are making a difference, one sustainable swap at a time.
-          </p>
-          <Link
-            href="/products"
-            className="inline-flex items-center space-x-2 bg-white text-primary-700 px-10 py-5 rounded-full font-bold text-lg hover:bg-neutral-100 transition-colors shadow-xl"
-          >
-            <span>Shop Now</span>
-            <ArrowRight size={24} />
-          </Link>
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-primary-600 rounded-[3rem] p-12 md:p-24 text-center text-white relative overflow-hidden shadow-2xl shadow-primary-600/20">
+            {/* Decorative Elements */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -mr-48 -mt-48" />
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-700/50 rounded-full blur-3xl -ml-48 -mb-48" />
+
+            <div className="relative z-10 max-w-4xl mx-auto">
+              <h2 className="text-4xl md:text-6xl font-serif font-bold mb-8 leading-tight">
+                Ready to Start Your <br /> Eco Journey?
+              </h2>
+              <p className="text-xl text-primary-50/90 mb-12 max-w-2xl mx-auto leading-relaxed">
+                Join thousands of others who are making a difference, one sustainable swap at a time.
+              </p>
+              <Link
+                href="/products"
+                className="inline-flex items-center space-x-3 bg-white text-primary-700 px-12 py-5 rounded-full font-bold text-xl hover:bg-neutral-50 transition-all transform hover:scale-105 shadow-xl"
+              >
+                <span>Browse Products</span>
+                <ArrowRight size={24} />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </div>

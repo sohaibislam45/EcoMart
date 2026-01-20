@@ -5,10 +5,10 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  
+
   --card: #ffffff;
   --card-foreground: #171717;
-  
+
   --primary-rgb: 22, 163, 74;
   --secondary-rgb: 161, 128, 114;
 }
@@ -17,7 +17,7 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
-    
+
     --card: #171717;
     --card-foreground: #ededed;
   }
@@ -66,11 +66,44 @@ body {
 
 /* Auth Page Background */
 .auth-bg {
-  background-image: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80');
+  background-image: url("https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80");
   background-size: cover;
   background-position: center;
 }
 
 .dark .auth-bg {
-  background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80');
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80");
+}
+
+/* Design-specific styles */
+.zoom-img {
+  transition: transform 0.5s ease;
+}
+
+.product-card-hover:hover .zoom-img {
+  transform: scale(1.05);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #22c38e;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 8px;
+  background: #27453b;
+  border-radius: 999px;
 }

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
 import { Upload, Plus, Loader2 } from 'lucide-react';
+import { getApiUrl } from '@/lib/api-url';
 import { useSession } from 'next-auth/react';
 
 export default function AddProductPage() {
@@ -34,7 +35,7 @@ export default function AddProductPage() {
         setLoading(true);
 
         try {
-            const res = await fetch('http://localhost:5000/api/products', {
+            const res = await fetch(getApiUrl('/products'), {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

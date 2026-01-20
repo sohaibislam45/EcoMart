@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>EcoMart | Bamboo Utensil Set</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#267339",
+                        "forest": "#274D2F",
+                        "charcoal": "#2C3032",
+                        "surface": "#363A3C",
+                        "background-light": "#f6f5f3",
+                        "background-dark": "#2a2e32",
+                        "eco-offwhite": "#F2F0EB",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Epilogue', sans-serif;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-eco-offwhite min-h-screen">
+    <!-- Top Navigation -->
+    <header class="border-b border-primary/20 bg-background-light dark:bg-background-dark sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-12">
+                <div class="flex items-center gap-3">
+                    <div class="size-10 bg-primary flex items-center justify-center rounded-lg text-white">
+                        <span class="material-symbols-outlined">eco</span>
+                    </div>
+                    <h1 class="text-2xl font-black tracking-tighter text-primary">EcoMart</h1>
+                </div>
+                <nav class="hidden md:flex items-center gap-8">
+                    <a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Shop</a>
+                    <a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Sustainability</a>
+                    <a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Impact</a>
+                    <a class="text-sm font-semibold hover:text-primary transition-colors" href="#">About</a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="hidden lg:flex items-center bg-primary/10 rounded-full px-4 py-2 border border-primary/20">
+                    <span class="material-symbols-outlined text-primary text-xl">search</span>
+                    <input class="bg-transparent border-none focus:ring-0 text-sm w-48 placeholder:text-primary/50"
+                        placeholder="Find sustainable goods..." type="text" />
+                </div>
+                <div class="flex items-center gap-3">
+                    <button class="p-2 hover:bg-primary/10 rounded-full transition-colors relative">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                        <span class="absolute top-1 right-1 size-2 bg-primary rounded-full"></span>
+                    </button>
+                    <button class="p-2 hover:bg-primary/10 rounded-full transition-colors">
+                        <span class="material-symbols-outlined">person</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-7xl mx-auto px-6 py-8">
+        <!-- Breadcrumbs -->
+        <nav class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-8">
+            <a class="hover:text-primary transition-colors" href="#">Home</a>
+            <span class="material-symbols-outlined text-xs">chevron_right</span>
+            <a class="hover:text-primary transition-colors" href="#">Home &amp; Kitchen</a>
+            <span class="material-symbols-outlined text-xs">chevron_right</span>
+            <span class="text-slate-900 dark:text-white font-medium">Bamboo Utensil Set</span>
+        </nav>
+        <!-- Product Hero Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+            <!-- Left: Image Gallery -->
+            <div class="lg:col-span-7 flex flex-col-reverse md:flex-row gap-4">
+                <div class="flex md:flex-col gap-4 overflow-x-auto no-scrollbar">
+                    <div class="size-20 rounded-lg border-2 border-primary bg-surface flex-shrink-0 bg-cover bg-center cursor-pointer"
+                        data-alt="Close up of bamboo fork"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD5qLmMuW6dh_uB5oM5btRgkEGUKEll-ECMqqHu1S801Ih3WnFgFyHAahkJj2ykvvf02DUl8tvqH2Lpf9ihxR8wTna4CKVLS8vRtW6UY2E7XU1xtLUtlzTY70a8bDeZplTWC9lXiUDmJdlWS4z7IBuwkW2f6bXyL0WqTiXYmTddx_59elfy49sAcAho41kIn0y1UD1YZsi1AHOOIEUTylcIF6Uuclc8ZXKBtaAZxXDlU4eOOLzuKtqwsLJPZQGPfeknUiHuXkqEW7qn');">
+                    </div>
+                    <div class="size-20 rounded-lg border border-primary/10 bg-surface flex-shrink-0 bg-cover bg-center cursor-pointer opacity-60 hover:opacity-100"
+                        data-alt="Side view of utensil holder"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDVoxnvi4fbqKPlNyf1-6YffxdjAyWUMZcwRGrn3ouYA1kaeXtWRg3wo2GGl_Dn_wPK24sjvez8pVKNUyZvJNupUtbyNKL11y46sUR_4RfoWAEaw-Yg50WkKJ-uNZJ3T6pWP-KoSZDUzvSQ7GfhGBT2B0EqRFnYwaDY6S2sfuN78uzbhFWR4z1OffDR3hBHohHsXh0TA-_7Fly8HhPxI3k4pIObT8Pc-_F-oT1eiBdIlFc3NiJKlSlR_xXQffmw53O0avJpx-0_rVei');">
+                    </div>
+                    <div class="size-20 rounded-lg border border-primary/10 bg-surface flex-shrink-0 bg-cover bg-center cursor-pointer opacity-60 hover:opacity-100"
+                        data-alt="Bamboo spoon macro shot"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBXLHpXibMLgR0Kk4hmBBdcwiJnRvQnTQKchLrG11A1wGekxTM6hFXPpbg_v-q0XaHEwmPfzuptNBPNfXJ_dCHz-VWYNHuOtzi1TwjqzAug3wrUHXmDgDVeox2fu40cqpHV7vBCE3zmN5_OLsc-IgAopxhuAV2PGqESDw8B4QIepSiR0UljJ8RsvJ1vTjB9A2wJgOYQR9JPLdXnq1JD8dS1qHon4Bi3ocjvlN33lDjaywTKPWadQpMyXv4XtB6Ll1EQ1IgKbjz5F1KV');">
+                    </div>
+                    <div class="size-20 rounded-lg border border-primary/10 bg-surface flex-shrink-0 bg-cover bg-center cursor-pointer opacity-60 hover:opacity-100"
+                        data-alt="Eco friendly packaging box"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBBNGCpLs-NsPKe2BMbQsF3HLkZQUXG7F6rDDW5CLsFOVESRcXeD7KWX3EHho6KVIBPqSxCKy0H3lTIWzxES5k-bAkB3WcLxen3qiJUzXDr0GH2_zmmEwu55EeoMy-d_QUa3IVzsXFwjCIB_wqluXEC1gB0U1Y4QzHztY56xIraTIIfZ48re9r0pQS5ZraVfZU68r6c0PjYXbpSWNDt755ddNl8g7Q31IJ7s-P5hAIyxYXFA5oFInjmvJjUKs96_V5NzWdke2mdOl5a');">
+                    </div>
+                </div>
+                <div class="flex-1 aspect-[4/5] rounded-xl bg-surface bg-cover bg-center border border-primary/10 overflow-hidden"
+                    data-alt="Large main view of bamboo utensil set"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBJ9TzoTc6FyVaUAiKIvu3SmKFJfmpsg69tGEDLzRP5Nj21g0QcL97yRY8qlXwsV38uQx9-WzOLSHq15mYfoy4vrARECrCOuIsNibFBKik91SS2BcpHLXjcOGfW_-Wv95TFfOMck0hTh_IOjjSdMi-icx9uykxwD9eSP7giwWfw34_nIE6DobrF6qkV3iXQrksgtZdanstHbELUSSFPahGP9twVNHdFMYm3Yh36pRVVEFogII-g2lucRYHyT1JoX6P6Akf4zn2Lw_9g');">
+                </div>
+            </div>
+            <!-- Right: Product Details -->
+            <div class="lg:col-span-5 flex flex-col">
+                <div class="flex justify-between items-start mb-4">
+                    <span
+                        class="px-3 py-1 bg-primary/20 text-primary text-xs font-bold rounded-full uppercase tracking-wider">Premium
+                        Eco-Line</span>
+                    <div class="flex items-center gap-1 text-amber-500">
+                        <span class="material-symbols-outlined text-sm fill-1">star</span>
+                        <span class="material-symbols-outlined text-sm fill-1">star</span>
+                        <span class="material-symbols-outlined text-sm fill-1">star</span>
+                        <span class="material-symbols-outlined text-sm fill-1">star</span>
+                        <span class="material-symbols-outlined text-sm">star_half</span>
+                        <span class="text-xs text-slate-400 ml-1 font-medium">(128 Reviews)</span>
+                    </div>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white leading-tight mb-4">Bamboo
+                    Utensil Set</h1>
+                <div class="flex items-baseline gap-4 mb-6">
+                    <span class="text-3xl font-bold text-primary">$24.99</span>
+                    <span class="text-lg text-slate-400 line-through font-medium">$34.99</span>
+                    <span class="text-xs font-bold bg-orange-500/10 text-orange-500 px-2 py-0.5 rounded">SAVE 30%</span>
+                </div>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
+                    Ethically sourced from sustainable forests, this 7-piece set is designed to replace single-use
+                    plastics. Lightweight, durable, and naturally antimicrobial. Perfect for travel, picnics, or daily
+                    office lunches.
+                </p>
+                <div class="flex items-center gap-2 mb-8 p-3 bg-orange-500/5 border border-orange-500/20 rounded-lg">
+                    <span class="material-symbols-outlined text-orange-500">warning</span>
+                    <span class="text-sm font-semibold text-orange-500 uppercase tracking-wide">Low Stock - Only 5 left
+                        in our warehouse!</span>
+                </div>
+                <!-- Variations -->
+                <div class="space-y-6 mb-10">
+                    <div>
+                        <label class="block text-sm font-bold uppercase tracking-widest text-slate-400 mb-3">Wood
+                            Finish</label>
+                        <div class="flex gap-3">
+                            <button
+                                class="px-6 py-2 rounded-lg border-2 border-primary bg-primary/5 text-sm font-bold">Natural
+                                Moso</button>
+                            <button
+                                class="px-6 py-2 rounded-lg border border-primary/20 hover:border-primary/50 text-sm font-bold transition-all">Carbonized
+                                Black</button>
+                        </div>
+                    </div>
+                    <div>
+                        <label
+                            class="block text-sm font-bold uppercase tracking-widest text-slate-400 mb-3">Quantity</label>
+                        <div class="flex items-center w-32 border border-primary/20 rounded-lg overflow-hidden">
+                            <button
+                                class="w-10 h-10 flex items-center justify-center hover:bg-primary/10 transition-colors">
+                                <span class="material-symbols-outlined text-sm">remove</span>
+                            </button>
+                            <div class="flex-1 text-center font-bold">1</div>
+                            <button
+                                class="w-10 h-10 flex items-center justify-center hover:bg-primary/10 transition-colors">
+                                <span class="material-symbols-outlined text-sm">add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Main Actions -->
+                <div class="flex gap-4 mb-8">
+                    <button
+                        class="flex-1 bg-primary hover:bg-primary/90 text-white h-14 rounded-xl flex items-center justify-center gap-3 font-bold text-lg transition-transform active:scale-95 shadow-lg shadow-primary/20">
+                        <span class="material-symbols-outlined">shopping_bag</span>
+                        Add to Cart
+                    </button>
+                    <button
+                        class="w-14 h-14 border border-primary/20 rounded-xl flex items-center justify-center hover:bg-primary/10 transition-all text-slate-400 hover:text-red-500 group">
+                        <span
+                            class="material-symbols-outlined transition-transform group-hover:scale-110">favorite</span>
+                    </button>
+                </div>
+                <!-- Trust Badges -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="flex items-center gap-3 p-3 bg-surface rounded-lg border border-primary/10">
+                        <span class="material-symbols-outlined text-primary">recycling</span>
+                        <span class="text-xs font-bold uppercase tracking-tighter">100% Recyclable</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-surface rounded-lg border border-primary/10">
+                        <span class="material-symbols-outlined text-primary">health_and_safety</span>
+                        <span class="text-xs font-bold uppercase tracking-tighter">BPA Free</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Information Tabs Section -->
+        <div class="mb-16">
+            <div class="flex border-b border-primary/10 mb-8 overflow-x-auto no-scrollbar">
+                <button
+                    class="px-8 py-4 border-b-2 border-primary text-primary font-bold whitespace-nowrap">Description</button>
+                <button
+                    class="px-8 py-4 text-slate-400 hover:text-slate-200 font-bold whitespace-nowrap transition-colors">Specifications</button>
+                <button
+                    class="px-8 py-4 text-slate-400 hover:text-slate-200 font-bold whitespace-nowrap transition-colors">Sustainability
+                    Impact</button>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-white">Rediscover Mindful Dining</h3>
+                    <p class="text-slate-400 leading-relaxed">Our bamboo utensil set isn't just a product; it's a
+                        commitment to a cleaner planet. Each piece is hand-finished and treated with food-safe flaxseed
+                        oil to ensure longevity and a smooth mouthfeel.</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
+                            <span class="text-sm text-slate-300">Set includes: Fork, Knife, Spoon, Chopsticks, Straw,
+                                and Brush.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
+                            <span class="text-sm text-slate-300">Travel pouch made from upcycled cotton canvas.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
+                            <span class="text-sm text-slate-300">Dishwasher safe, but hand-washing recommended for
+                                longer life.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-surface p-8 rounded-2xl border border-primary/10">
+                    <h4 class="text-sm font-bold text-primary uppercase tracking-widest mb-6">Material Breakdown</h4>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center py-2 border-b border-primary/5">
+                            <span class="text-slate-400 text-sm">Utensils</span>
+                            <span class="text-white font-medium text-sm">100% Organic Moso Bamboo</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-primary/5">
+                            <span class="text-slate-400 text-sm">Pouch</span>
+                            <span class="text-white font-medium text-sm">80% Recycled Cotton, 20% Hemp</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2 border-b border-primary/5">
+                            <span class="text-slate-400 text-sm">Weight</span>
+                            <span class="text-white font-medium text-sm">115 grams (ultra-light)</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2">
+                            <span class="text-slate-400 text-sm">CO2 Offset</span>
+                            <span class="text-primary font-bold text-sm">1.2kg per set</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bento Reviews Section -->
+        <div class="mb-20">
+            <h2 class="text-3xl font-black text-white mb-8">Community Feedback</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div
+                    class="md:col-span-1 bg-primary/10 border border-primary/20 p-6 rounded-2xl flex flex-col justify-center items-center text-center">
+                    <span class="text-5xl font-black text-primary mb-2">4.8</span>
+                    <div class="flex text-primary mb-2">
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1">star</span>
+                        <span class="material-symbols-outlined fill-1 text-primary/30">star</span>
+                    </div>
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Average Rating</span>
+                </div>
+                <div
+                    class="md:col-span-3 bg-surface border border-primary/5 p-6 rounded-2xl flex flex-col justify-center">
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-4">
+                            <span class="text-xs font-bold w-4">5</span>
+                            <div class="flex-1 h-2 bg-background-dark rounded-full overflow-hidden">
+                                <div class="h-full bg-primary w-[85%]"></div>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 w-8">85%</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="text-xs font-bold w-4">4</span>
+                            <div class="flex-1 h-2 bg-background-dark rounded-full overflow-hidden">
+                                <div class="h-full bg-primary w-[10%]"></div>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 w-8">10%</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="text-xs font-bold w-4">3</span>
+                            <div class="flex-1 h-2 bg-background-dark rounded-full overflow-hidden">
+                                <div class="h-full bg-primary w-[5%]"></div>
+                            </div>
+                            <span class="text-xs font-bold text-slate-500 w-8">5%</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Individual Reviews -->
+                <div class="md:col-span-2 bg-surface p-6 rounded-2xl border border-primary/5">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="size-10 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">
+                                MS</div>
+                            <div>
+                                <p class="text-sm font-bold text-white">Marcus S.</p>
+                                <p class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Verified Buyer
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex text-amber-500 text-sm">
+                            <span class="material-symbols-outlined fill-1 text-xs">star</span>
+                            <span class="material-symbols-outlined fill-1 text-xs">star</span>
+                            <span class="material-symbols-outlined fill-1 text-xs">star</span>
+                            <span class="material-symbols-outlined fill-1 text-xs">star</span>
+                            <span class="material-symbols-outlined fill-1 text-xs">star</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-400 italic">"Surprisingly sturdy! I was worried they would feel flimsy,
+                        but they're quite solid. The carrying pouch is a nice touch for travel."</p>
+                </div>
+                <div class="md:col-span-2 bg-surface p-6 rounded-2xl border border-primary/5">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="size-10 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">
+                                EL</div>
+                            <div>
+                                <p class="text-sm font-bold text-white">Elena L.</p>
+                                <p class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Verified Buyer
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex text-amber-500 text-sm">
+                            <span class="material-symbols-outlined fill-1 text-xs">star</span>
+                            <span class="material-symbols-outlined fill-1 text-xs">star</span>
+                            <span class="material-symbols-outlined fill-1 text-xs">star</span>
+                            <span class="material-symbols-outlined fill-1 text-xs">star</span>
+                            <span class="material-symbols-outlined text-xs">star</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-slate-400 italic">"Beautiful aesthetic and weight. I've been using them for a
+                        month and they hold up well in the dishwasher. Love the mission."</p>
+                </div>
+            </div>
+        </div>
+        <!-- Related Products Carousel -->
+        <div class="mb-16">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-2xl font-black text-white">Pairs well with</h2>
+                <div class="flex gap-2">
+                    <button
+                        class="size-10 rounded-full border border-primary/20 flex items-center justify-center hover:bg-primary/10 transition-colors">
+                        <span class="material-symbols-outlined">chevron_left</span>
+                    </button>
+                    <button
+                        class="size-10 rounded-full border border-primary/20 flex items-center justify-center hover:bg-primary/10 transition-colors">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Related Item 1 -->
+                <div
+                    class="group bg-surface rounded-2xl overflow-hidden border border-primary/5 hover:border-primary/20 transition-all duration-300">
+                    <div class="aspect-[4/3] bg-cover bg-center" data-alt="Reusable coconut bowl"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBLpmSPUcylLgaeFDN9apNOsmlE_ppwjVjTYAmhX_fhudSNSskeLgsXOzmXHEZzwkxgoVs2ze26PzG_ocg7A64X72e8tlHwYQ1LQkCA-MTR_tkLo7lIRY25dzGrJ305GEUb0yhLWqpKdyoKfGBZR1hLlslZovC6XIW1391y8XgDLACj4xQjzoupg_kOW1CBXXdq0oxtRoY-MyjFiuRrfoZ5BWWZnq3c_kiROLBgoFOHrto9HI89uXOlueTZqIdsxXzVyjyZYWuAnajq');">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-white mb-1 group-hover:text-primary transition-colors">Coconut Shell
+                            Bowl</h3>
+                        <p class="text-xs text-slate-500 mb-4">Zero Waste / Reclaimed</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-primary">$18.00</span>
+                            <button
+                                class="size-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+                                <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Related Item 2 -->
+                <div
+                    class="group bg-surface rounded-2xl overflow-hidden border border-primary/5 hover:border-primary/20 transition-all duration-300">
+                    <div class="aspect-[4/3] bg-cover bg-center" data-alt="Hemp napkin set"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDAyoAoUMfR79Gb2ieSw9CJWl1aGuQYGpxCZ_e7Q456M_-_UcMBh44ySzxGIiwjJ7oldlN1UkK_bPO6LCKi2HtwOltXqGlSDWXG1G2Fn90sThQL7FJ01kfVrva6FCXhwwjnpcNQNDpEN5mQgeOx6BJWbbFr-8IcSa4N1ii0BjnNh1yaRV1CCp9mKGjZ_mPdqXchgMZETSbl3AY8oeEwDL6q_cmEWfUD_9nN7YEmbOVG7s0vyQ1nUIBYRArD0l5b6TQq9GvxAnM_SQRw');">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-white mb-1 group-hover:text-primary transition-colors">Organic Hemp
+                            Napkins</h3>
+                        <p class="text-xs text-slate-500 mb-4">Set of 4 / Unbleached</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-primary">$22.50</span>
+                            <button
+                                class="size-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+                                <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Related Item 3 -->
+                <div
+                    class="group bg-surface rounded-2xl overflow-hidden border border-primary/5 hover:border-primary/20 transition-all duration-300">
+                    <div class="aspect-[4/3] bg-cover bg-center" data-alt="Glass water bottle"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCgJX-XWpLT2_XQ97k0pOO9umtkaKHu7tjYyptMABVAC3bShGNAjBJxQpZfRK7fFuUJxDDV5HjY-82uIfArgDSJY3wkrrFeERCNoBLUFEFryzN-wxvcIP7_M9sRPks9P5lvvPCJa_yP-Sh1lFfvsVusvxXW_sU4ImHr2q9A1LThrGk3Gu6qB7P1e-3zO8Qepb2V3aidrkKjKPqfE7PdJCsxmmyARuOqgkLN8l5pvLAa9wNtGFF3z1io5p3_ZntGB1iHCBqMLKL67BKF');">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-white mb-1 group-hover:text-primary transition-colors">Borosilicate
+                            Bottle</h3>
+                        <p class="text-xs text-slate-500 mb-4">Bamboo Lid / 750ml</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-primary">$32.00</span>
+                            <button
+                                class="size-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+                                <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Related Item 4 -->
+                <div
+                    class="group bg-surface rounded-2xl overflow-hidden border border-primary/5 hover:border-primary/20 transition-all duration-300">
+                    <div class="aspect-[4/3] bg-cover bg-center" data-alt="Beeswax food wraps"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAK8Bvv2_ztfZFO2DcUSryO9UsWGefeNwC6nB1aVfTH-oCRsNdENJSgl7083jyePrpa2okGxwTstjoiCjUx7zQgpFFP2UuU9O17SOeVZdcxMJJ6-tDYLGDnUVv7Y0bCJ02P-f5QO6aTmGhCjRdkomt8zZBFaqixEf0OFbixDxvxbl-5xhkY6p_UKe6Z33sGbE60EBk3GaBE4gKzuMwPH0MgJXr7On8LUdm6xksx1N08zNrJUmlvm9z2a48qyWenv_G4EIiY2Tj0xsg5');">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-white mb-1 group-hover:text-primary transition-colors">Beeswax Food
+                            Wraps</h3>
+                        <p class="text-xs text-slate-500 mb-4">Variety Pack / Plastic-Free</p>
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-primary">$15.99</span>
+                            <button
+                                class="size-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+                                <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-surface py-12 border-t border-primary/10 mt-auto">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-1">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="size-8 bg-primary flex items-center justify-center rounded-lg text-white">
+                        <span class="material-symbols-outlined text-xl">eco</span>
+                    </div>
+                    <h2 class="text-xl font-black tracking-tighter text-primary">EcoMart</h2>
+                </div>
+                <p class="text-sm text-slate-400 leading-relaxed mb-6">Curating the world's most sustainable goods for a
+                    better tomorrow. Join our mission to eliminate plastic waste.</p>
+                <div class="flex gap-4">
+                    <a class="size-10 rounded-full bg-background-dark flex items-center justify-center hover:text-primary transition-colors border border-primary/10"
+                        href="#"><span class="material-symbols-outlined text-xl">public</span></a>
+                    <a class="size-10 rounded-full bg-background-dark flex items-center justify-center hover:text-primary transition-colors border border-primary/10"
+                        href="#"><span class="material-symbols-outlined text-xl">nest_eco_leaf</span></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-6 uppercase tracking-widest text-xs">Explore</h4>
+                <ul class="space-y-4 text-sm text-slate-400 font-medium">
+                    <li><a class="hover:text-primary transition-colors" href="#">Kitchen Collection</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Personal Care</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Eco-Travel</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Gift Cards</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-6 uppercase tracking-widest text-xs">Sustainability</h4>
+                <ul class="space-y-4 text-sm text-slate-400 font-medium">
+                    <li><a class="hover:text-primary transition-colors" href="#">Our Carbon Pledge</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Ethical Sourcing</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Zero-Waste Guide</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">B-Corp Status</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-6 uppercase tracking-widest text-xs">Join our Greenletter</h4>
+                <p class="text-sm text-slate-400 mb-4">Tips on sustainable living and early access to drops.</p>
+                <div class="flex gap-2">
+                    <input
+                        class="flex-1 bg-background-dark border-none rounded-lg text-sm focus:ring-1 focus:ring-primary px-4"
+                        placeholder="Email address" type="email" />
+                    <button class="bg-primary text-white px-4 py-2 rounded-lg font-bold text-sm">Join</button>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-primary/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold text-slate-500 uppercase tracking-widest">
+            <p>© 2024 EcoMart International. All rights reserved.</p>
+            <div class="flex gap-8">
+                <a class="hover:text-primary" href="#">Privacy Policy</a>
+                <a class="hover:text-primary" href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

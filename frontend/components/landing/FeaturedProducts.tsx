@@ -1,11 +1,12 @@
 import ProductCard from '@/components/ui/ProductCard';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { getApiUrl } from '@/lib/api-url';
 
 async function getFeaturedProducts() {
     try {
-        // In production, use environment variable for URL
-        const res = await fetch('http://localhost:5000/api/products?limit=8', {
+        // In production, use utility for internal URL
+        const res = await fetch(getApiUrl('/products?limit=8'), {
             next: { revalidate: 60 } // Revalidate every minute
         });
 

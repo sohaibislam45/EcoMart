@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { getApiUrl } from '@/lib/api-url';
 import { Edit, Trash2, Plus, Search } from 'lucide-react';
 import Swal from 'sweetalert2';
 
@@ -11,7 +12,7 @@ export default function AdminProductsPage() {
 
     const fetchProducts = async () => {
         try {
-            const res = await fetch('http://localhost:5000/api/products');
+            const res = await fetch(getApiUrl('/products'));
             const data = await res.json();
             setProducts(data);
         } catch (error) {
@@ -38,7 +39,7 @@ export default function AdminProductsPage() {
 
         if (result.isConfirmed) {
             try {
-                await fetch(`http://localhost:5000/api/products/${id}`, {
+                await fetch(getApiUrl(`/products/${id}`), {
                     method: 'DELETE',
                 });
                 setProducts(products.filter((p: any) => p._id !== id));

@@ -3,6 +3,7 @@ import ProductFilter from '@/components/products/ProductFilter';
 import ProductCard from '@/components/ui/ProductCard';
 import { PackageX, ChevronRight, Expand } from 'lucide-react';
 import Link from 'next/link';
+import { getApiUrl } from '@/lib/api-url';
 
 async function getProducts(searchParams: any) {
     const params = new URLSearchParams();
@@ -19,7 +20,7 @@ async function getProducts(searchParams: any) {
     // The design shows "Showing 8 of 24 products", implying pagination.
 
     try {
-        const res = await fetch(`http://localhost:5000/api/products?${params.toString()}`, {
+        const res = await fetch(getApiUrl(`/products?${params.toString()}`), {
             cache: 'no-store'
         });
 
@@ -31,22 +32,15 @@ async function getProducts(searchParams: any) {
     }
 }
 
-export default async function ProductsPage({
-    searchParams,
-}: {
-    searchParams: { [key: string]: string | undefined };
+export default async function ProductsPage(props: {
+    searchParams: Promise<{ [key: string]: string | undefined }>;
 }) {
+    const searchParams = await props.searchParams;
     const products = await getProducts(searchParams);
 
     return (
         <div className="min-h-screen bg-background-light dark:bg-background-dark font-display text-white">
             <main className="max-w-[1440px] mx-auto px-4 md:px-10 lg:px-20 py-8">
-                {/* Breadcrumbs */}
-                <div className="flex items-center gap-2 mb-8 text-sm">
-                    <Link href="/" className="text-white/50 hover:text-primary transition-colors">Home</Link>
-                    <ChevronRight size={12} className="text-white/30" />
-                    <span className="text-white font-medium">Products</span>
-                </div>
 
                 <div className="flex flex-col lg:flex-row gap-10">
                     {/* Sidebar Filters */}
